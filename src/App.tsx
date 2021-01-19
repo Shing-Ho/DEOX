@@ -19,6 +19,7 @@ import DeoxDea from "./components/DeoxDea";
 import DeoxUsdc from "./components/DeoxUsdc";
 import HomePageNoWeb3 from "./components/HomePageNoWeb3";
 import Header from './components/Header/Header';
+import Warp from './components/Warp';
 import "./index.css";
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
                   <Route path="/deoxdea/"><DeoxDea user={user}/></Route>
                   <Route path="/deoxusdc/:override"><DeoxUsdc user={user}/></Route>
                   <Route path="/deoxusdc/"><DeoxUsdc user={user}/></Route>
+                  <Route path="/warp/"><Warp user={user}/></Route>
                   <Route path="/"><HomePage user={user}/></Route>
                 </Switch>
                 :

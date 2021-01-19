@@ -1,0 +1,10 @@
+import React from 'react';
+
+function Warp({ user }: {user: string}) {
+  return (
+    <div>
+    </div>
+  )
+}
+
+export default Warp;

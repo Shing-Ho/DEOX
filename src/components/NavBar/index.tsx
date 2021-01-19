@@ -30,7 +30,7 @@ function NavBar() {
                 <img src={textLogo} height="25px" alt="Deox Text" style={{ marginLeft: 15 }} />
               </NavLink>
             </div>
-            <div style={{ width: '60%', textAlign: 'center' }}>
+            <div style={{ width: '80%', textAlign: 'right' }}>
               <LinkButton title="DASHBOARD" to="//" />
               <LinkButton title="STAKE" to="/stake/" />
               <TwoLinkButton title="LIQUIDITY" />
