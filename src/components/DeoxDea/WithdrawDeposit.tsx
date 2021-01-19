@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, IconCirclePlus, IconCircleMinus, IconLock
+  Box, IconCirclePlus, IconCircleMinus, IconLock
 } from '@aragon/ui';
 import BigNumber from 'bignumber.js';
 import {
@@ -11,6 +11,7 @@ import {isPos, toBaseUnitBN} from '../../utils/number';
 import {UNI} from "../../constants/tokens";
 import {MAX_UINT256} from "../../constants/values";
 import BigNumberInput from "../common/BigNumberInput";
+import Button from "../common/Button";
 
 type WithdrawDepositProps = {
   poolAddress: string
@@ -28,7 +29,10 @@ function WithdrawDeposit({
   const [withdrawAmount, setWithdrawAmount] = useState(new BigNumber(0));
 
   return (
-    <Box heading="Stage">
+    <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
+      <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+        STAGE
+      </div>
       {allowance.comparedTo(MAX_UINT256) === 0 ?
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total Issued */}
@@ -55,8 +59,6 @@ function WithdrawDeposit({
               </div>
               <div style={{width: '40%', minWidth: '7em'}}>
                 <Button
-                  wide
-                  icon={status === 0 ? <IconCirclePlus/> : <IconLock/>}
                   label="Deposit"
                   onClick={() => {
                     depositPool(
@@ -92,7 +94,6 @@ function WithdrawDeposit({
               <div style={{width: '40%', minWidth: '7em'}}>
                 <Button
                   wide
-                  icon={status === 0 ? <IconCircleMinus/> : <IconLock/>}
                   label="Withdraw"
                   onClick={() => {
                     withdrawPool(
@@ -115,10 +116,8 @@ function WithdrawDeposit({
           </div>
           <div style={{flexBasis: '35%'}}/>
           {/* Approve Pool to spend UNI-V2 */}
-          <div style={{flexBasis: '33%', paddingTop: '2%'}}>
+          <div style={{flexBasis: '33%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
             <Button
-              wide
-              icon={<IconCirclePlus />}
               label="Approve"
               onClick={() => {
                 approve(UNI.addr, poolAddress);

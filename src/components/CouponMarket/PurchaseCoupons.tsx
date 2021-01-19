@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, IconCirclePlus, IconCircleMinus
+  Box, IconCirclePlus, IconCircleMinus
 } from '@aragon/ui';
 import BigNumber from 'bignumber.js';
 import {
@@ -13,6 +13,7 @@ import {ESD, ESDS} from "../../constants/tokens";
 import {MAX_UINT256} from "../../constants/values";
 import {getCouponPremium} from "../../utils/infura";
 import BigNumberInput from "../common/BigNumberInput";
+import Button from '../common/Button';
 
 type PurchaseCouponsProps = {
   user: string,
@@ -39,7 +40,10 @@ function PurchaseCoupons({
   };
 
   return (
-    <Box heading="Purchase">
+    <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
+      <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+        PURCHASE
+      </div>
       {allowance.comparedTo(MAX_UINT256) === 0 ?
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* User balance */}
@@ -69,10 +73,8 @@ function PurchaseCoupons({
                   />
                 </>
               </div>
-              <div style={{width: '40%', minWidth: '6em'}}>
+              <div style={{width: '40%', minWidth: '6em', display: 'flex', justifyContent: 'flex-end'}}>
                 <Button
-                  wide
-                  icon={<IconCircleMinus/>}
                   label="Burn"
                   onClick={() => {
                     purchaseCoupons(
@@ -95,10 +97,8 @@ function PurchaseCoupons({
           </div>
           <div style={{flexBasis: '40%'}}/>
           {/* Approve DAO to spend Døllar */}
-          <div style={{flexBasis: '30%', paddingTop: '2%'}}>
+          <div style={{flexBasis: '30%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
             <Button
-              wide
-              icon={<IconCirclePlus/>}
               label="Approve"
               onClick={() => {
                 approve(ESD.addr, ESDS.addr);

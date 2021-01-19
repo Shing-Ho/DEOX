@@ -6,14 +6,15 @@ import BigNumber from 'bignumber.js';
 import {
   BalanceBlock, MaxButton,
 } from '../common/index';
-import {approve, deposit, withdraw} from '../../utils/web3';
+import {approve, depositPool, withdrawPool} from '../../utils/web3';
 import {isPos, toBaseUnitBN} from '../../utils/number';
-import {ESD, ESDS} from "../../constants/tokens";
+import {UNI} from "../../constants/tokens";
 import {MAX_UINT256} from "../../constants/values";
 import BigNumberInput from "../common/BigNumberInput";
-import CustomButton from '../common/Button';
+import Button from "../common/Button";
 
 type WithdrawDepositProps = {
+  poolAddress: string
   user: string
   balance: BigNumber,
   allowance: BigNumber,
@@ -22,7 +23,7 @@ type WithdrawDepositProps = {
 };
 
 function WithdrawDeposit({
-  user, balance, allowance, stagedBalance, status
+  poolAddress, user, balance, allowance, stagedBalance, status
 }: WithdrawDepositProps) {
   const [depositAmount, setDepositAmount] = useState(new BigNumber(0));
   const [withdrawAmount, setWithdrawAmount] = useState(new BigNumber(0));
@@ -36,15 +37,15 @@ function WithdrawDeposit({
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total Issued */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"ESD"}/>
+            <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"UNI-V2"}/>
           </div>
-          {/* Deposit Døllar into DAO */}
+          {/* Deposit UNI-V2 into Pool */}
           <div style={{flexBasis: '33%', paddingTop: '2%'}}>
             <div style={{display: 'flex'}}>
               <div style={{width: '60%', minWidth: '6em'}}>
                 <>
                   <BigNumberInput
-                    adornment="ESD"
+                    adornment="UNI-V2"
                     value={depositAmount}
                     setter={setDepositAmount}
                     disabled={status !== 0}
@@ -56,17 +57,17 @@ function WithdrawDeposit({
                   />
                 </>
               </div>
-              <div style={{width: '40%', minWidth: '6em'}}>
-                <CustomButton
-                  wide
+              <div style={{width: '40%', minWidth: '7em'}}>
+                <Button
                   label="Deposit"
                   onClick={() => {
-                    deposit(
-                      ESDS.addr,
-                      toBaseUnitBN(depositAmount, ESD.decimals),
+                    depositPool(
+                      poolAddress,
+                      toBaseUnitBN(depositAmount, UNI.decimals),
+                      (hash) => setDepositAmount(new BigNumber(0))
                     );
                   }}
-                  disabled={status === 1 || !isPos(depositAmount) || depositAmount.isGreaterThan(balance)}
+                  disabled={poolAddress === '' || status !== 0 || !isPos(depositAmount)}
                 />
               </div>
             </div>
@@ -75,10 +76,10 @@ function WithdrawDeposit({
           {/* Withdraw Døllar from DAO */}
           <div style={{flexBasis: '33%', paddingTop: '2%'}}>
             <div style={{display: 'flex'}}>
-              <div style={{width: '60%', minWidth: '7em'}}>
+              <div style={{width: '60%', minWidth: '6em'}}>
                 <>
                   <BigNumberInput
-                    adornment="ESD"
+                    adornment="UNI-V2"
                     value={withdrawAmount}
                     setter={setWithdrawAmount}
                     disabled={status !== 0}
@@ -91,16 +92,17 @@ function WithdrawDeposit({
                 </>
               </div>
               <div style={{width: '40%', minWidth: '7em'}}>
-                <CustomButton
+                <Button
                   wide
                   label="Withdraw"
                   onClick={() => {
-                    withdraw(
-                      ESDS.addr,
-                      toBaseUnitBN(withdrawAmount, ESD.decimals),
+                    withdrawPool(
+                      poolAddress,
+                      toBaseUnitBN(withdrawAmount, UNI.decimals),
+                      (hash) => setWithdrawAmount(new BigNumber(0))
                     );
                   }}
-                  disabled={status === 1 || !isPos(withdrawAmount) || withdrawAmount.isGreaterThan(stagedBalance)}
+                  disabled={poolAddress === '' || status !== 0 || !isPos(withdrawAmount)}
                 />
               </div>
             </div>
@@ -110,17 +112,17 @@ function WithdrawDeposit({
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total Issued */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"ESD"}/>
+            <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"UNI-V2"}/>
           </div>
           <div style={{flexBasis: '35%'}}/>
-          {/* Approve DAO to spend Døllar */}
-          <div style={{flexBasis: '33%', paddingTop: '2%', justifyContent: 'flex-end', display: 'flex'}}>
-            <CustomButton
+          {/* Approve Pool to spend UNI-V2 */}
+          <div style={{flexBasis: '33%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
+            <Button
               label="Approve"
               onClick={() => {
-                approve(ESD.addr, ESDS.addr);
+                approve(UNI.addr, poolAddress);
               }}
-              disabled={user === ''}
+              disabled={poolAddress === '' || user === ''}
             />
           </div>
         </div>

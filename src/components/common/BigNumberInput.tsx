@@ -4,6 +4,7 @@ import BigNumber from 'bignumber.js';
 import {
   TextInput,
 } from '@aragon/ui';
+import styles from './BigNumberInput.module.scss';
 
 type BigNumberInputProps = {
   value: BigNumber,
@@ -14,7 +15,7 @@ type BigNumberInputProps = {
 
 function BigNumberInput({ value, setter, adornment, disabled=false }: BigNumberInputProps) {
   return (
-    <>
+    <div className={styles.main}>
       <TextInput
         type="number"
         adornmentPosition="end"
@@ -34,8 +35,9 @@ function BigNumberInput({ value, setter, adornment, disabled=false }: BigNumberI
           }
         }}
         disabled={disabled}
+        style={{ backgroundColor: 'transparent', borderColor: '#1b1b1b' }}
       />
-    </>
+    </div>
   );
 }
 

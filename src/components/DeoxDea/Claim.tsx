@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, IconArrowDown
+  Box, IconArrowDown
 } from '@aragon/ui';
 import BigNumber from 'bignumber.js';
 import {
@@ -10,6 +10,7 @@ import {claimPool} from '../../utils/web3';
 import {isPos, toBaseUnitBN} from '../../utils/number';
 import {ESD} from "../../constants/tokens";
 import BigNumberInput from "../common/BigNumberInput";
+import Button from '../common/Button';
 
 type ClaimProps = {
   poolAddress: string
@@ -23,7 +24,10 @@ function Claim({
   const [claimAmount, setClaimAmount] = useState(new BigNumber(0));
 
   return (
-    <Box heading="Claim">
+    <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
+      <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+        CLAIM
+      </div>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* total Issued */}
         <div style={{flexBasis: '32%'}}>
@@ -51,7 +55,6 @@ function Claim({
             <div style={{width: '40%', minWidth: '6em'}}>
               <Button
                 wide
-                icon={<IconArrowDown/>}
                 label="Claim"
                 onClick={() => {
                   claimPool(

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, IconCirclePlus, IconCircleMinus, IconCaution
+  Box, IconCirclePlus, IconCircleMinus, IconCaution
 } from '@aragon/ui';
 import BigNumber from 'bignumber.js';
 import {
@@ -11,6 +11,7 @@ import {isPos, toBaseUnitBN} from '../../utils/number';
 import {UNI} from "../../constants/tokens";
 import BigNumberInput from "../common/BigNumberInput";
 import TextBlock from "../common/TextBlock";
+import Button from '../common/Button';
 
 type BondUnbondProps = {
   poolAddress: string,
@@ -27,7 +28,10 @@ function BondUnbond({
   const [unbondAmount, setUnbondAmount] = useState(new BigNumber(0));
 
   return (
-    <Box heading="Bond">
+    <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
+      <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+        BOND
+      </div>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}}>
@@ -57,7 +61,6 @@ function BondUnbond({
             <div style={{width: '40%', minWidth: '7em'}}>
               <Button
                 wide
-                icon={status === 0 ? <IconCirclePlus/> : <IconCaution/>}
                 label="Bond"
                 onClick={() => {
                   bondPool(
@@ -92,7 +95,6 @@ function BondUnbond({
             <div style={{width: '40%', minWidth: '7em'}}>
               <Button
                 wide
-                icon={status === 0 ? <IconCircleMinus/> : <IconCaution/>}
                 label="Unbond"
                 onClick={() => {
                   unbondPool(

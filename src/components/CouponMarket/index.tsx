@@ -19,6 +19,7 @@ import ModalWarning from "./ModalWarning";
 import IconHeader from "../common/IconHeader";
 import {getPreference, storePreference} from "../../utils/storage";
 import {CheckBox} from "../common";
+import DEUSBONDS from '../../assets/DEUSBONDS.png';
 
 const ONE_COUPON = new BigNumber(10).pow(18);
 
@@ -115,7 +116,7 @@ function CouponMarket({ user }: {user: string}) {
     <>
       <ModalWarning/>
 
-      <IconHeader icon={<i className="fas fa-ticket-alt"/>} text="Coupon Market"/>
+      <IconHeader icon={<img src={DEUSBONDS} />} text="DEUS BONDS"/>
 
       <CouponMarketHeader
         debt={debt}

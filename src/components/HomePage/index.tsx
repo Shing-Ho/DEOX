@@ -4,6 +4,13 @@ import {
   Box, LinkBase, Tag,
 } from '@aragon/ui';
 import EpochBlock from "../common/EpochBlock";
+import STAKE from '../../assets/STAKE.png';
+import DEOXDEA from '../../assets/DEOXDEA.png';
+import DEOXUSDC from '../../assets/DEOXUSDC.png';
+import TRADE from '../../assets/TRADE.png';
+import DEUSBONDS from '../../assets/DEUSBONDS.png';
+import REGULATION from '../../assets/REGULATION.png';
+import Weight from '../../assets/weight.png';
 
 function epochformatted() {
   const epochStart = 1599148800;
@@ -51,22 +58,34 @@ function HomePage({user}: HomePageProps) {
 
   return (
     <>
+      <div style={{ marginBottom: 50, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={Weight} alt="weight" />
+        <div style={{ fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 30, color: 'white' }}>
+          DEOX THE STABLE COIN OF DEUS
+        </div>
+        <div style={{ fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 15, color: 'rgba(255,255,255,0.7)', textAlign: 'center' }}>
+          Buy, sell, and provide liquidity for DEOX to earn.
+        </div>
+        <div style={{ fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 15, color: 'rgba(255,255,255,0.7)', textAlign: 'center' }}>
+          This should be some text explaining everything briefly.
+        </div>
+      </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '68%' }} />
-        <div style={{ flexBasis: '30%', flexGrow: 1, marginRight: '2%', textAlign: 'right'}}>
-          <Box>
+        <div style={{ flexBasis: '30%', flexGrow: 1, marginLeft: '2%', textAlign: 'left'}}>
+          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)' }}>
             <EpochBlock epoch={epochTime}/>
           </Box>
         </div>
+        <div style={{ flexBasis: '68%' }} />
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flexBasis: '30%', marginRight: '3%', marginLeft: '2%'  }}>
           <MainButton
-            title="DAO"
-            description="Earn rewards for governing"
-            icon={<i className="fas fa-dot-circle"/>}
+            title="STAKE"
+            description="Earn rewards for bonding assets"
+            icon={<img src={STAKE} alt="stake" />}
             onClick={() => {
-              history.push('/dao/');
+              history.push('/stake/');
             }}
           />
         </div>
@@ -74,21 +93,21 @@ function HomePage({user}: HomePageProps) {
         <div style={{ flexBasis: '30%' }}>
           <MainButton
             title="LP Rewards"
-            description="Earn rewards for providing liquidity."
-            icon={<i className="fas fa-parachute-box"/>}
+            description="Earn rewards for providing liquidity"
+            icon={<img src={DEOXDEA} alt="deoxdea" />}
             onClick={() => {
-              history.push('/pool/');
+              history.push('/deoxdea/');
             }}
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '3%', marginRight: '2%' }}>
+        <div style={{ flexBasis: '30%', marginLeft: '3%' }}>
           <MainButton
-            title="Regulation"
-            description="Network supply regulation statistics."
-            icon={<i className="fas fa-chart-area"/>}
+            title="LP Rewards"
+            description="Earn rewards for providing liquidity"
+            icon={<img src={DEOXUSDC} alt="deoxusdc" />}
             onClick={() => {
-              history.push('/regulation/');
+              history.push('/deoxusdc/');
             }}
           />
         </div>
@@ -96,9 +115,9 @@ function HomePage({user}: HomePageProps) {
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flexBasis: '30%', marginRight: '3%', marginLeft: '2%' }}>
           <MainButton
-            title="Governance"
-            description="Vote on upgrades."
-            icon={<i className="fas fa-poll"/>}
+            title="Trade"
+            description="Trade DEOX"
+            icon={<img src={TRADE} alt="trade" />}
             onClick={() => {
               history.push('/governance/');
             }}
@@ -107,22 +126,22 @@ function HomePage({user}: HomePageProps) {
 
         <div style={{ flexBasis: '30%' }}>
           <MainButton
-            title="Trade"
-            description="Trade døllar tokens."
-            icon={<i className="fas fa-exchange-alt"/>}
+            title="DEUS BONDS"
+            description="Purchase and redeem coupons"
+            icon={<img src={DEUSBONDS} alt="deusbonds" />}
             onClick={() => {
-              history.push('/trade/');
+              history.push('/deusbonds/');
             }}
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '3%', marginRight: '2%'  }}>
+        <div style={{ flexBasis: '30%', marginLeft: '3%'  }}>
           <MainButton
-            title="Coupons"
-            description="Purchase and redeem coupons."
-            icon={<i className="fas fa-ticket-alt"/>}
+            title="REGULATION"
+            description="Network supply regulations statistics"
+            icon={<img src={REGULATION} alt="regulation" />}
             onClick={() => {
-              history.push('/coupons/');
+              history.push('/deusbonds/');
             }}
           />
         </div>
@@ -144,8 +163,8 @@ function MainButton({
 }:MainButtonPropx) {
   return (
     <LinkBase onClick={onClick} style={{ width: '100%' }}>
-      <Box>
-        <div style={{ padding: 10, fontSize: 18 }}>
+      <Box style={{ backgroundColor: '#d7eefe' }}>
+        <div style={{ padding: 0, fontSize: 25, fontWeight: 600, color: 'black' }}>
           {title}
           {tag ? <Tag>{tag}</Tag> : <></>}
         </div>
@@ -153,7 +172,7 @@ function MainButton({
           {icon}
         </span>
         {/*<img alt="icon" style={{ padding: 10, height: 64 }} src={iconUrl} />*/}
-        <div style={{ paddingTop: 5, opacity: 0.5 }}>
+        <div style={{ paddingTop: 5, opacity: 0.5, color: 'rgba(0,0,0,0.5)', fontSize: 15, fontWeight: 600 }}>
           {' '}
           {description}
           {' '}

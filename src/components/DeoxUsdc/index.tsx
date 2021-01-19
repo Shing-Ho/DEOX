@@ -25,6 +25,7 @@ import IconHeader from "../common/IconHeader";
 import Migrate from "./Migrate";
 import {getLegacyPoolAddress, getPoolAddress} from "../../utils/pool";
 import {DollarPool4} from "../../constants/contracts";
+import Liquidity from '../../assets/Liquidity.png';
 
 
 
@@ -168,7 +169,7 @@ function Pool({ user }: {user: string}) {
   const hasLegacyBalance = legacyUserStagedBalance.isGreaterThan(0) || legacyUserClaimableBalance.isGreaterThan(0) || legacyUserBondedBalance.isGreaterThan(0);
   return (
     <>
-      <IconHeader icon={<i className="fas fa-parachute-box"/>} text="LP Reward Pool"/>
+      <IconHeader icon={<img src={Liquidity} />} text="LIQUIDITY - DEOX/USDC" small />
 
       {hasLegacyBalance ?
         <>

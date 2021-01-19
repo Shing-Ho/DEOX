@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Edu Monument Grotesk Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div {
+  font-family: 'Edu Monument Grotesk Mono';
+
+}
+
+@font-face {
+  font-family: 'Edu Monument Grotesk Mono';
+  src: local('Edu Monument Grotesk Mono'), url(./fonts/EduMonumentGroteskSemi-Mono-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Edu Monument Grotesk Semi-Mono';
+  src: local('Edu Monument Grotesk Semi-Mono'), url(./fonts/EduMonumentGroteskSemi-Mono-Regular2.woff) format('woff');
+}
+

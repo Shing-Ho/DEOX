@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Button, IconArrowUp, IconCirclePlus
+  Box, IconArrowUp, IconCirclePlus
 } from '@aragon/ui';
 import BigNumber from 'bignumber.js';
 import {
@@ -11,6 +11,7 @@ import {isPos, toBaseUnitBN, toTokenUnitsBN} from '../../utils/number';
 import {ESD, USDC} from "../../constants/tokens";
 import {MAX_UINT256} from "../../constants/values";
 import BigNumberInput from "../common/BigNumberInput";
+import Button from '../common/Button';
 
 type ProvideProps = {
   poolAddress: string,
@@ -49,7 +50,10 @@ function Provide({
   };
 
   return (
-    <Box heading="Provide">
+    <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
+      <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+        PROVIDE
+      </div>
       {userUSDCAllowance.comparedTo(MAX_UINT256.dividedBy(2)) > 0 ?
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total rewarded */}
@@ -79,10 +83,8 @@ function Provide({
                   />
                 </>
               </div>
-              <div style={{width: '40%', minWidth: '6em'}}>
+              <div style={{width: '40%', minWidth: '6em', display: 'flex', justifyContent: 'flex-end'}}>
                 <Button
-                  wide
-                  icon={<IconArrowUp/>}
                   label="Provide"
                   onClick={() => {
                     providePool(
@@ -108,10 +110,8 @@ function Provide({
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Approve Pool to spend USDC */}
-          <div style={{flexBasis: '33%', paddingTop: '2%'}}>
+          <div style={{flexBasis: '33%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
             <Button
-              wide
-              icon={<IconCirclePlus/>}
               label="Approve"
               onClick={() => {
                 approve(USDC.addr, poolAddress);

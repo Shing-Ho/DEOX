@@ -7,13 +7,14 @@ import {
 type IconHeaderProps = {
   icon: any,
   text: string
+  small?: boolean
 }
 
-function IconHeader({ icon, text }: IconHeaderProps) {
+function IconHeader({ icon, text, small }: IconHeaderProps) {
   return (
     <>
       <div style={{ padding: '1%', display: 'flex', alignItems: 'center' }}>
-        <div style={{ marginRight: '2%', fontSize: 48 }}>
+        <div style={small ? { marginRight: '1%', fontSize: 32 } : { marginRight: '2%', fontSize: 48 }}>
           {icon}
         </div>
         <div>

@@ -8,6 +8,8 @@ import {ESD, ESDS} from "../../constants/tokens";
 import {formatBN, toBaseUnitBN, toTokenUnitsBN} from "../../utils/number";
 import BigNumber from "bignumber.js";
 import {redeemCoupons} from "../../utils/web3";
+import DEUSBONDS from '../../assets/DEUSBONDS.png';
+import styles from './PurchaseHistory.module.scss';
 
 type PurchaseHistoryProps = {
   user: string,
@@ -56,33 +58,47 @@ function PurchaseHistory({
   }, [user, totalRedeemable]);
 
   return (
-    <DataView
-      fields={['Epoch', 'Purchased', 'Balance', 'Expires', '']}
-      status={ initialized ? 'default' : 'loading' }
-      // @ts-ignore
-      entries={hideRedeemed ? epochs.filter((epoch) => !epoch.balance.isZero()) : epochs}
-      entriesPerPage={10}
-      page={page}
-      onPageChange={setPage}
-      renderEntry={(epoch) => [
-        epoch.epoch.toString(),
-        formatBN(toTokenUnitsBN(epoch.coupons, ESD.decimals), 2),
-        formatBN(toTokenUnitsBN(epoch.balance, ESD.decimals), 2),
-        epoch.expiration.toString(),
-        <Button
-          icon={<IconCirclePlus />}
-          label="Redeem"
-          onClick={() => redeemCoupons(
-            ESDS.addr,
-            epoch.epoch,
-            epoch.balance.isGreaterThan(toBaseUnitBN(totalRedeemable, ESD.decimals))
-              ? toBaseUnitBN(totalRedeemable, ESD.decimals)
-              : epoch.balance
-          )}
-          disabled={epoch.balance.isZero()}
-        />
-      ]}
-    />
+    <div className={styles.dataview}>
+      <DataView
+        fields={['Epoch', 'Purchased', 'Balance', 'Expires', '']}
+        status={ initialized ? 'default' : 'loading' }
+        // @ts-ignore
+        entries={hideRedeemed ? epochs.filter((epoch) => !epoch.balance.isZero()) : epochs}
+        entriesPerPage={10}
+        page={page}
+        onPageChange={setPage}
+        emptyState={() => (
+          <div style={{
+            backgroundColor: '#0d0d0d',
+            borderStyle: 'solid',
+            borderWidth: 0,
+            borderColor: '#868686',
+            textAlign: 'center',
+            padding: 50
+          }}>
+            <span style={{textAlign: 'center', fontSize: 26}}>Loading data...</span> 
+          </div>
+        )}
+        renderEntry={(epoch) => [
+          epoch.epoch.toString(),
+          formatBN(toTokenUnitsBN(epoch.coupons, ESD.decimals), 2),
+          formatBN(toTokenUnitsBN(epoch.balance, ESD.decimals), 2),
+          epoch.expiration.toString(),
+          <Button
+            icon={<IconCirclePlus />}
+            label="Redeem"
+            onClick={() => redeemCoupons(
+              ESDS.addr,
+              epoch.epoch,
+              epoch.balance.isGreaterThan(toBaseUnitBN(totalRedeemable, ESD.decimals))
+                ? toBaseUnitBN(totalRedeemable, ESD.decimals)
+                : epoch.balance
+            )}
+            disabled={epoch.balance.isZero()}
+          />
+        ]}
+      />
+    </div>
   );
 }
 

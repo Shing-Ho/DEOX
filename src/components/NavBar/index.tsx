@@ -2,17 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { LinkBase, useTheme } from '@aragon/ui';
-import ConnectButton from './ConnectButton';
+import logoUrl from '../../assets/DEOXLogo.png';
+import textLogo from '../../assets/DEOXText.png';
+import styles from './navbar.module.scss';
 
-type NavbarProps = {
-  hasWeb3: boolean;
-  user: string;
-  setUser: Function;
-};
-
-function NavBar({ hasWeb3, user, setUser }: NavbarProps) {
+function NavBar() {
   const currentTheme = useTheme();
-  const logoUrl = `./logo/logo_${currentTheme._name === 'light' ? 'black' : 'white'}.svg`;
+  // const logoUrl = `./logo/logo_${currentTheme._name === 'light' ? 'black' : 'white'}.svg`;
 
   return (
     <>
@@ -29,20 +25,30 @@ function NavBar({ hasWeb3, user, setUser }: NavbarProps) {
         <div style={{ maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }}>
           <div style={{ display: 'flex', paddingTop: '24px' }}>
             <div style={{ width: '20%', textAlign: 'left' }}>
-              <NavLink to="/" component={LinkBase} style={{ marginRight: '16px', height: '40px' }}>
+              <NavLink target="_self" to="/" component={LinkBase} style={{ marginRight: '16px', height: '40px', display: 'flex', alignItems: 'center' }}>
                 <img src={logoUrl} height="40px" alt="Empty Set Dollar" />
+                <img src={textLogo} height="25px" alt="Deox Text" style={{ marginLeft: 15 }} />
               </NavLink>
             </div>
             <div style={{ width: '60%', textAlign: 'center' }}>
-              <LinkButton title="DAO" to="/dao/" />
-              <LinkButton title="Liquidity" to="/pool/" />
-              <LinkButton title="Regulation" to="/regulation/" />
-              <LinkButton title="Governance" to="/governance/" />
-              <LinkButton title="Trade" to="/trade/" />
-              <LinkButton title="Coupons" to="/coupons/" />
-            </div>
-            <div style={{ width: '20%', textAlign: 'right' }}>
-              <ConnectButton hasWeb3={hasWeb3} user={user} setUser={setUser} />
+              <LinkButton title="DASHBOARD" to="//" />
+              <LinkButton title="STAKE" to="/stake/" />
+              <TwoLinkButton title="LIQUIDITY" />
+              {/* <LinkButton title="TRADE" to="/trade/" /> */}
+
+              <a 
+                style={{
+                  alignItems: 'center',
+                  paddingLeft: '8px',
+                  marginRight: '8px',
+                  height: '40px',
+                  opacity: 1,
+                  textDecoration: 'auto',
+                  width: '100%', padding: '1%', fontSize: '17px'
+                }} href="https://google.com">TRADE</a>
+              <LinkButton title="DEUS BONDS" to="/deusbonds/" />
+              <LinkButton title="WARP" to="/regulation/" />
+              {/* <LinkButton title="Governance" to="/governance/" /> */}
             </div>
           </div>
         </div>
@@ -54,6 +60,10 @@ function NavBar({ hasWeb3, user, setUser }: NavbarProps) {
 type linkButtonProps = {
   title: string;
   to: string;
+};
+
+type twolinkButtonProps = {
+  title: string;
 };
 
 function LinkButton({ title, to }: linkButtonProps) {
@@ -68,12 +78,56 @@ function LinkButton({ title, to }: linkButtonProps) {
         marginLeft: '8px',
         marginRight: '8px',
         height: '40px',
-        opacity: 0.5,
+        opacity: 1,
       }}
-      activeStyle={{ opacity: 1 }}
+      activeStyle={{ opacity: 1, borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: 'white', borderRadius: 0 }}
     >
       <span style={{ display: 'block', padding: '1%', fontSize: '17px' }}>{title}</span>
     </NavLink>
+  );
+}
+
+function TwoLinkButton({ title }: twolinkButtonProps) {
+  return (
+    <span style={{position: 'relative'}} className={styles.twoNav}>
+      <span style={{ padding: '1%', fontSize: '17px' }}>{title}</span>
+      <span style={{ position: 'absolute', top: 20, left: 0 }} className={styles.overlay}>
+        <NavLink
+          to={'/deoxdea/'}
+          component={LinkBase}
+          external={false}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            paddingLeft: '8px',
+            marginRight: '8px',
+            height: '40px',
+            opacity: 1,
+            borderBottomWidth: 2, borderBottomStyle: 'solid', borderBottomColor: '#1b1b1b',
+            width: '100%'
+          }}
+          activeStyle={{ opacity: 1, borderRadius: 0 }}
+        >
+          <span style={{ display: 'block', padding: '1%', fontSize: '17px' }}>{'DEOX/DEA'}</span>
+        </NavLink>
+        <NavLink
+          to={'/deoxusdc/'}
+          component={LinkBase}
+          external={false}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            marginLeft: '8px',
+            marginRight: '8px',
+            height: '40px',
+            opacity: 1,
+          }}
+          activeStyle={{ opacity: 1, borderRadius: 0 }}
+        >
+          <span style={{ display: 'block', padding: '1%', fontSize: '17px' }}>{'DEOX/USDC'}</span>
+        </NavLink>
+      </span>
+    </span>
   );
 }
 

@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aragon/api-react": "^2.0.0",
     "@aragon/ui": "^1.3.1",
     "@babel/runtime": "^7.9.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bignumber.js": "^9.0.0",
     "moment": "^2.25.3",
+    "node-sass": "4.14.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",

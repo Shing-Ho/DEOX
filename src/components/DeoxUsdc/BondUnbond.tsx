@@ -6,14 +6,15 @@ import BigNumber from 'bignumber.js';
 import {
   BalanceBlock, MaxButton,
 } from '../common/index';
-import { bond, unbondUnderlying } from '../../utils/web3';
+import {bondPool, unbondPool} from '../../utils/web3';
 import {isPos, toBaseUnitBN} from '../../utils/number';
-import { ESD, ESDS } from "../../constants/tokens";
+import {UNI} from "../../constants/tokens";
 import BigNumberInput from "../common/BigNumberInput";
 import TextBlock from "../common/TextBlock";
 import Button from '../common/Button';
 
 type BondUnbondProps = {
+  poolAddress: string,
   staged: BigNumber,
   bonded: BigNumber,
   status: number,
@@ -21,7 +22,7 @@ type BondUnbondProps = {
 };
 
 function BondUnbond({
-  staged, bonded, status, lockup
+  poolAddress, staged, bonded, status, lockup
 }: BondUnbondProps) {
   const [bondAmount, setBondAmount] = useState(new BigNumber(0));
   const [unbondAmount, setUnbondAmount] = useState(new BigNumber(0));
@@ -34,19 +35,19 @@ function BondUnbond({
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}}>
-          <BalanceBlock asset="Bonded" balance={bonded} suffix={"ESD"}/>
+          <BalanceBlock asset="Bonded" balance={bonded} suffix={"UNI-V2"} />
         </div>
-        {/* Total bonded */}
+        {/* Exit lockup */}
         <div style={{flexBasis: '16%'}}>
           <TextBlock label="Exit Lockup" text={lockup === 0 ? "" : lockup === 1 ? "1 epoch" : `${lockup} epochs`}/>
         </div>
-        {/* Bond Døllar within DAO */}
+        {/* Bond UNI-V2 within Pool */}
         <div style={{flexBasis: '33%', paddingTop: '2%'}}>
           <div style={{display: 'flex'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="ESD"
+                  adornment="UNI-V2"
                   value={bondAmount}
                   setter={setBondAmount}
                 />
@@ -62,24 +63,25 @@ function BondUnbond({
                 wide
                 label="Bond"
                 onClick={() => {
-                  bond(
-                    ESDS.addr,
-                    toBaseUnitBN(bondAmount, ESD.decimals),
+                  bondPool(
+                    poolAddress,
+                    toBaseUnitBN(bondAmount, UNI.decimals),
+                    (hash) => setBondAmount(new BigNumber(0))
                   );
                 }}
-                disabled={status === 2 || !isPos(bondAmount) || bondAmount.isGreaterThan(staged)}
+                disabled={poolAddress === '' || !isPos(bondAmount)}
               />
             </div>
           </div>
         </div>
-        <div style={{width: '2%'}}/>
-        {/* Unbond Døllar within DAO */}
+        <div style={{flexBasis: '2%'}}/>
+        {/* Unbond UNI-V2 within Pool */}
         <div style={{flexBasis: '33%', paddingTop: '2%'}}>
           <div style={{display: 'flex'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="ESD"
+                  adornment="UNI-V2"
                   value={unbondAmount}
                   setter={setUnbondAmount}
                 />
@@ -95,12 +97,13 @@ function BondUnbond({
                 wide
                 label="Unbond"
                 onClick={() => {
-                  unbondUnderlying(
-                    ESDS.addr,
-                    toBaseUnitBN(unbondAmount, ESD.decimals),
+                  unbondPool(
+                    poolAddress,
+                    toBaseUnitBN(unbondAmount, UNI.decimals),
+                    (hash) => setUnbondAmount(new BigNumber(0))
                   );
                 }}
-                disabled={status === 2 || !isPos(unbondAmount) || unbondAmount.isGreaterThan(bonded)}
+                disabled={poolAddress === '' || !isPos(unbondAmount)}
               />
             </div>
           </div>

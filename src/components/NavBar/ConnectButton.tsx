@@ -33,10 +33,10 @@ function ConnectButton({ hasWeb3, user, setUser }: connectButtonProps) {
   const toggleModal = () => setModalOpen(!isModalOpen);
 
   return status === 'connected' ? (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex' }}>
       <div style={{flex: '1'}}/>
       <div>
-        <Box padding={4} style={{width: '192px'}}>
+        <Box padding={4} style={{width: '192px',  backgroundColor: '#0e1d1d', borderColor: '#234545'}}>
           <div style={{display: 'flex'}}>
             <div>
               <LinkBase onClick={disconnectWeb3} style={{marginRight: '8px', height: '24px'}}>
@@ -58,7 +58,7 @@ function ConnectButton({ hasWeb3, user, setUser }: connectButtonProps) {
   ) : (
     <>
       <ConnectModal visible={isModalOpen} onClose={toggleModal} onConnect={connectWeb3}/>
-      <Button icon={<IconConnect />} label="Connect" onClick={toggleModal} disabled={!hasWeb3}/>
+      <Button label="connect wallet" onClick={toggleModal} disabled={!hasWeb3} style={{ backgroundColor: '#0e1d1d', borderColor: '#234545' }} />
     </>
   );
 }
