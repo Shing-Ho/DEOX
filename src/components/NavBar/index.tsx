@@ -45,9 +45,9 @@ function NavBar() {
                   opacity: 1,
                   textDecoration: 'auto',
                   width: '100%', padding: '1%', fontSize: '17px'
-                }} href="https://google.com">TRADE</a>
+                }} href="https://app.deus.finance/swap">TRADE</a>
               <LinkButton title="DEUS BONDS" to="/deusbonds/" />
-              <LinkButton title="WARP" to="/regulation/" />
+              <LinkButton title="WARP" to="/warp/" />
               {/* <LinkButton title="Governance" to="/governance/" /> */}
             </div>
           </div>
