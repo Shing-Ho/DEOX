@@ -34,7 +34,7 @@ function BondUnbond({
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}}>
-          <BalanceBlock asset="Bonded" balance={bonded} suffix={"ESD"}/>
+          <BalanceBlock asset="Bonded" balance={bonded} suffix={"DEOX"}/>
         </div>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}}>
@@ -46,7 +46,7 @@ function BondUnbond({
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="ESD"
+                  adornment="DEOX"
                   value={bondAmount}
                   setter={setBondAmount}
                 />
@@ -79,7 +79,7 @@ function BondUnbond({
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="ESD"
+                  adornment="DEOX"
                   value={unbondAmount}
                   setter={setUnbondAmount}
                 />
