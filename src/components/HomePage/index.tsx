@@ -79,7 +79,7 @@ function HomePage({user}: HomePageProps) {
         <div style={{ flexBasis: '68%' }} />
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', marginRight: '3%', marginLeft: '2%'  }}>
+        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%'  }}>
           <MainButton
             title="STAKE"
             description="Earn rewards for bonding assets"
@@ -101,7 +101,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '3%' }}>
+        <div style={{ flexBasis: '30%', marginLeft: '1%' }}>
           <MainButton
             title="LP Rewards"
             description="Earn rewards for providing liquidity"
@@ -113,7 +113,7 @@ function HomePage({user}: HomePageProps) {
         </div>
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', marginRight: '3%', marginLeft: '2%' }}>
+        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%' }}>
           <MainButton
             title="Trade"
             description="Trade DEOX"
@@ -135,7 +135,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '3%'  }}>
+        <div style={{ flexBasis: '30%', marginLeft: '1%'  }}>
           <MainButton
             title="REGULATION"
             description="Network supply regulations statistics"
