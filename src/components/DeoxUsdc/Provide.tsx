@@ -110,8 +110,9 @@ function Provide({
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Approve Pool to spend USDC */}
-          <div style={{flexBasis: '33%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
+          <div style={{flexBasis: '33%', paddingTop: '2%'}}>
             <Button
+              wide
               label="Approve"
               onClick={() => {
                 approve(USDC.addr, poolAddress);
