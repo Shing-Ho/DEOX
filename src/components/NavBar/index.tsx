@@ -92,7 +92,7 @@ function TwoLinkButton({ title }: twolinkButtonProps) {
   return (
     <span style={{position: 'relative'}} className={styles.twoNav}>
       <span style={{ padding: '1%', fontSize: '17px' }}>{title}</span>
-      <span style={{ position: 'absolute', top: 20, left: 0 }} className={styles.overlay}>
+      <span style={{ position: 'absolute', top: 25, left: 0 }} className={styles.overlay}>
         <NavLink
           to={'/deoxdea/'}
           component={LinkBase}
