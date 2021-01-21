@@ -38,20 +38,21 @@ function ConnectButton({ hasWeb3, user, setUser }: connectButtonProps) {
       <div>
         <Box padding={4} style={{width: '192px',  backgroundColor: '#0e1d1d', borderColor: '#234545'}}>
           <div style={{display: 'flex'}}>
-            <div>
+            {/* <div>
               <LinkBase onClick={disconnectWeb3} style={{marginRight: '8px', height: '24px'}}>
                 <IconPower />
               </LinkBase>
-            </div>
-            <div style={{flex: '1', textAlign: 'right'}}>
-              <IdentityBadge entity={user} />
+            </div> */}
+            <div style={{flex: '1', textAlign: 'center'}}>
+              {/* <IdentityBadge entity={user} /> */}
+              {user.slice(0,6) + '...' + user.slice(user.length - 4, user.length)}
             </div>
           </div>
-          <div style={{display: 'flex'}}>
+          {/* <div style={{display: 'flex'}}>
             <div style={{flex: '1', textAlign: 'right'}}>
               <TotalBalance user={user} />
             </div>
-          </div>
+          </div> */}
         </Box>
       </div>
     </div>
