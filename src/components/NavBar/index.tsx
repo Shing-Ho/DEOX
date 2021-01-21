@@ -42,7 +42,7 @@ function NavBar() {
                 style={{
                   alignItems: 'center',
                   paddingLeft: '8px',
-                  height: '40px',
+                  height: '22px',
                   opacity: 1,
                   textDecoration: 'auto',
                   width: '100%', padding: '1%', fontSize: '17px'
@@ -78,7 +78,7 @@ function LinkButton({ title, to }: linkButtonProps) {
         alignItems: 'center',
         marginLeft: '8px',
         marginRight: '8px',
-        height: '40px',
+        height: '22px',
         opacity: 1,
       }}
       activeStyle={{ opacity: 1, borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: 'white', borderRadius: 0 }}
