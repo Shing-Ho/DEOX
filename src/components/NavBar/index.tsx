@@ -42,7 +42,6 @@ function NavBar() {
                 style={{
                   alignItems: 'center',
                   paddingLeft: '8px',
-                  marginRight: '8px',
                   height: '40px',
                   opacity: 1,
                   textDecoration: 'auto',
