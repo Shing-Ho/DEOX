@@ -4,7 +4,7 @@ import {
   Box, LinkBase, Tag,
 } from '@aragon/ui';
 import EpochBlock from "../common/EpochBlock";
-import STAKE from '../../assets/STAKE.png';
+import LOCK from '../../assets/LockIcon.png';
 import DEOXDEA from '../../assets/DEOXDEA.png';
 import DEOXUSDC from '../../assets/DEOXUSDC.png';
 import TRADE from '../../assets/TRADE.png';
@@ -81,9 +81,9 @@ function HomePage({user}: HomePageProps) {
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%'  }}>
           <MainButton
-            title="STAKE"
-            description="Earn rewards for bonding assets"
-            icon={<img src={STAKE} alt="stake" />}
+            title="LOCK"
+            description="Earn rewards for locking DEOX"
+            icon={<img src={LOCK} alt="lock" style={{width: 35}} />}
             onClick={() => {
               history.push('/stake/');
             }}
