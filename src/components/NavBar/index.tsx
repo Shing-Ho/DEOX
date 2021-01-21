@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { LinkBase, useTheme } from '@aragon/ui';
-import logoUrl from '../../assets/DEOXLogo.png';
+// import logoUrl from '../../assets/DEOXLogo.png';
+import { ReactComponent as DEOXLogo } from '../../assets/DEOX.svg';
 import textLogo from '../../assets/DEOXText.png';
 import styles from './navbar.module.scss';
 
@@ -26,7 +27,8 @@ function NavBar() {
           <div style={{ display: 'flex', paddingTop: '24px' }}>
             <div style={{ width: '20%', textAlign: 'left' }}>
               <NavLink target="_self" to="/" component={LinkBase} style={{ marginRight: '16px', height: '40px', display: 'flex', alignItems: 'center' }}>
-                <img src={logoUrl} height="40px" alt="Empty Set Dollar" />
+                {/* <img src={logoUrl} height="40px" alt="Empty Set Dollar" /> */}
+                <DEOXLogo height="40px" />
                 <img src={textLogo} height="25px" alt="Deox Text" style={{ marginLeft: 15 }} />
               </NavLink>
             </div>
