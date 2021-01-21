@@ -21,3 +21,15 @@ export const ESDS = {
   decimals: 18,
   symbol: 'ESDS',
 };
+
+export const DEA = {
+  addr: '0x1424740D7Ba7f711cB194B8620E9cA417Ac54628',
+  decimals: 18,
+  symbol: 'DEUS',
+}
+
+export const DEOX = {
+  addr: '0xE18cf55EC4e40cb3E4dD57c9150ceb9682c25329',
+  decimals: 18,
+  symbol: 'DEOX',
+}

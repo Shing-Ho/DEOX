@@ -1,7 +1,7 @@
 import Web3 from 'web3';
 
 import BigNumber from 'bignumber.js';
-import { UniswapV2Router02 } from '../constants/contracts';
+import { UniswapV2Router02, DEADEOX } from '../constants/contracts';
 import { ESD, UNI, USDC } from '../constants/tokens';
 import { POOL_EXIT_LOCKUP_EPOCHS } from '../constants/values';
 
@@ -10,6 +10,7 @@ const daoAbi = require('../constants/abi/Implementation.json');
 const poolAbi = require('../constants/abi/Pool.json');
 const uniswapRouterAbi = require('../constants/abi/UniswapV2Router02.json');
 const uniswapPairAbi = require('../constants/abi/UniswapV2Pair.json');
+const deadeoxAbi = require('../constants/abi/DEADEOX.json');
 
 let web3;
 // eslint-disable-next-line no-undef
@@ -602,3 +603,18 @@ export const getPoolFluidUntil = async (pool, account) => {
   // epoch when the event is emitted, so we subtract 1 here to adjust
   return (parseInt(startEpoch, 10) + POOL_EXIT_LOCKUP_EPOCHS - 1).toString();
 };
+
+export const getMethodsOfDEADEOX = async () => {
+  const poolContract = new web3.eth.Contract(deadeoxAbi, DEADEOX);
+  return poolContract.methods;
+};
+
+export const getDeaDeoxPrice = async () => {
+  const poolContract = new web3.eth.Contract(deadeoxAbi, DEADEOX);
+  return poolContract.methods.price().call();
+}
+
+export const sellDeaToDeox = async (deoxAmount, deaAmount) => {
+  const poolContract = new web3.eth.Contract(deadeoxAbi, DEADEOX);
+  return poolContract.methods.sell(deoxAmount, deaAmount).call();
+}
