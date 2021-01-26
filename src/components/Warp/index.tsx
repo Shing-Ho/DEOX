@@ -161,7 +161,7 @@ function Warp({ user }: {user: string}) {
             {userDeaAmount && new BigNumber(userDeaAmount).toNumber() !== 0 ? (
               <Button wide className={styles.warpButton} onClick={() => onWarp()}>WARP</Button>
             ) : (
-              <Button wide className={styles.inactiveWarpButton} disabled>WARP</Button>
+              <Button wide className={styles.inactiveWarpButton} disabled>Enter Amount</Button>
             )}
           </div>
         </div>
