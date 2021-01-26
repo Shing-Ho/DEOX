@@ -12,16 +12,19 @@ import { toTokenUnitsBN } from '../../utils/number';
 import {DEA, DEOX} from "../../constants/tokens";
 
 import styles from './Warp.module.scss';
-import WarpLayer from '../../assets/WarpLayer.png';
-import deaImg from '../../assets/DEALogo.png';
-import deoxImg from '../../assets/DEOXLogo.png';
+// import deaImg from '../../assets/DEALogo.png';
+// import deoxImg from '../../assets/DEOXLogo.png';
 import refreshIcon from '../../assets/refresh.png';
+import { ReactComponent as LayerImg } from '../../assets/layer.svg';
+import { ReactComponent as DEAImg } from '../../assets/dea.svg';
+import { ReactComponent as DEOXImg } from '../../assets/DEOX.svg';
+
 
 function Warp({ user }: {user: string}) {
-  const [activeSlippage, setActiveSlippage] = useState('0');
-  const [userDeaAmount, setUserDeaAmount] = useState(new BigNumber(0));
+  const [activeSlippage, setActiveSlippage] = useState('0.5');
+  const [userDeaAmount, setUserDeaAmount] = useState<BigNumber>();
   const [userDeaBalance, setUserDeaBalance] = useState(new BigNumber(0));
-  const [userDeoxAmount, setUserDeoxAmount] = useState(new BigNumber(0));
+  const [userDeoxAmount, setUserDeoxAmount] = useState<BigNumber>();
   const [userDeoxBalance, setUserDeoxBalance] = useState(new BigNumber(0));
   const [deaDeoxPrice, setDeaDeoxPrice] = useState(new BigNumber(0));
 
@@ -45,6 +48,7 @@ function Warp({ user }: {user: string}) {
 
   useEffect(() => {
     if(userDeaAmount) {
+      console.log('userDeaAmount', userDeaAmount)
       setUserDeoxAmount(new BigNumber(userDeaAmount).multipliedBy(deaDeoxPrice));
     }
   }, [userDeaAmount])
@@ -70,7 +74,7 @@ function Warp({ user }: {user: string}) {
         2,345.345 DEA lost
       </div>
       <div className={styles.mainPart}>
-        <img src={WarpLayer} />
+        <LayerImg width="850" />
         <div className={styles.topPart}>
           <Box className={styles.deaTop}>
             <div className={styles.deaTopDiv}>
@@ -86,7 +90,8 @@ function Warp({ user }: {user: string}) {
                 <Button className={styles.maxButton} onClick={() => setUserDeaAmount(userDeaBalance)}>
                   MAX
                 </Button>
-                <img src={deaImg} />
+                {/* <img src={deaImg} /> */}
+                <DEAImg />
                 <span className={styles.deaBottomDivText}>DEA</span>
               </div>
             </div>
@@ -100,9 +105,10 @@ function Warp({ user }: {user: string}) {
                 <span className={styles.deoxTopText}>Balance: {userDeoxBalance.toNumber().toFixed(5)}</span>
               </div>
               <div className={styles.deoxBottom}>
-                <span className={styles.deoxBottomText}>{userDeoxAmount.toNumber().toFixed(5)}</span>
+                <span className={userDeoxAmount ? styles.deoxBottomText : styles.deoxBottomGrayText}>{userDeoxAmount ? userDeoxAmount.toNumber().toFixed(5) : '0.00'}</span>
                 <div className={styles.deoxBottomRow}>
-                  <img src={deoxImg} />
+                  {/* <img src={deoxImg} /> */}
+                  <DEOXImg />
                   <span className={styles.deoxBottomText}>DEOX</span>
                 </div>
               </div>

@@ -39,7 +39,7 @@ export default function Header({ hasWeb3, user, setUser }: HeaderProps) {
           title="DEOX"
           items={[
             { title: 'DASHBOARD', link: '//' },
-            { title: 'STAKE', link: '/stake/' },
+            { title: 'LOCK', link: '/stake/' },
             { title: 'LP DEOX/DEA', link: '/deoxdea' },
             { title: 'LP DEOX/USDC', link: '/deoxusdc/' },
             { title: 'TRADE', link: 'https://app.deus.finance/swap' },
