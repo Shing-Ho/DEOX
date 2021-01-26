@@ -164,7 +164,7 @@ function MainButton({
   return (
     <LinkBase onClick={onClick} style={{ width: '100%' }}>
       <Box style={{ backgroundColor: '#d7eefe' }}>
-        <div style={{ padding: 0, fontSize: 25, fontWeight: 600, color: 'black' }}>
+        <div style={{ padding: 0, fontSize: 25, fontWeight: 400, color: 'black' }}>
           {title}
           {tag ? <Tag>{tag}</Tag> : <></>}
         </div>
@@ -172,7 +172,7 @@ function MainButton({
           {icon}
         </span>
         {/*<img alt="icon" style={{ padding: 10, height: 64 }} src={iconUrl} />*/}
-        <div style={{ paddingTop: 5, opacity: 0.5, color: 'rgba(0,0,0,0.5)', fontSize: 15, fontWeight: 600 }}>
+        <div style={{ paddingTop: 5, opacity: 0.5, color: 'rgba(0,0,0,0.5)', fontSize: 15, fontWeight: 400 }}>
           {' '}
           {description}
           {' '}
