@@ -37,21 +37,21 @@
     margin-top: 70px;
     position: relative;
     img {
-      width: 650px;
+      width: 850px;
     }
     .exchangePart {
       width: 100%;
       background-color: black;
-      height: 400px;
+      height: 500px;
       position: absolute;
-      top: 298px;
+      top: 420px;
       left: 0;
       padding-top: 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
       .bottomPart {
-        width: 450px;
+        width: 550px;
         .deox {
           background: linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%);
           border-radius: 10px;
@@ -71,7 +71,7 @@
               font-family: Edu Monument Grotesk Mono;
               font-style: normal;
               font-weight: normal;
-              font-size: 12px;
+              font-size: 15px;
               line-height: 17px;
               color: rgba(0, 0, 0, 0.5);            
             }
@@ -117,7 +117,7 @@
               font-family: Edu Monument Grotesk Mono;
               font-style: normal;
               font-weight: normal;
-              font-size: 10px;
+              font-size: 14px;
               line-height: 14px;
               display: flex;
               align-items: center;
@@ -127,7 +127,7 @@
               font-family: Edu Monument Grotesk Mono;
               font-style: normal;
               font-weight: normal;
-              font-size: 12px;
+              font-size: 14px;
               line-height: 17px;
               display: flex;
               align-items: center;
@@ -139,8 +139,8 @@
               flex-direction: row;
               align-items: center;
               img {
-                width: 10px;
-                height: 10px;
+                width: 15px;
+                height: 15px;
                 margin-left: 5px;
               }
             }
@@ -155,7 +155,7 @@
               font-family: Edu Monument Grotesk Mono;
               font-style: normal;
               font-weight: normal;
-              font-size: 12px;
+              font-size: 16px;
               line-height: 17px;
               display: flex;
               align-items: center;
@@ -252,13 +252,26 @@
           color: #FFFFFF;
           height: 55px;
         }
+        .inactiveWarpButton {
+          margin-top: 15px;
+          background: rgba(210, 222, 230, 0.8);
+          border-radius: 10px;
+          height: 55px;
+          color: rgba(0,0,0,0.5);
+          font-family: Edu Monument Grotesk Mono;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 25px;
+          line-height: 35px;
+          text-align: right;
+        }
       }
     }
     .topPart {
       position: absolute;
       top: 100px;
-      left: 100px;
-      width: 450px;
+      left: 150px;
+      width: 550px;
       .deaTop {
         background: linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%);
         border: 1px solid #FFFFFF;
@@ -276,7 +289,7 @@
             font-family: Edu Monument Grotesk Mono;
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
+            font-size: 15px;
             line-height: 17px;
             color: rgba(0, 0, 0, 0.5);            
           }

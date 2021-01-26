@@ -27,7 +27,6 @@ function Warp({ user }: {user: string}) {
 
   useEffect(() => {
     async function updateUserInfo() {
-      console.log('before address', user);
       const [deaAmount, deosAmount, contracts, price] = await Promise.all([
         getTokenBalance(DEA.addr, user),
         getTokenBalance(DEOX.addr, user),
@@ -42,7 +41,7 @@ function Warp({ user }: {user: string}) {
       console.log('contracts', contracts, new BigNumber(toTokenUnitsBN(price, DEA.decimals)).toNumber())
     }
     updateUserInfo();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     if(userDeaAmount) {
@@ -80,7 +79,7 @@ function Warp({ user }: {user: string}) {
             </div>
             <div className={styles.deaBottomDiv}>
               {/* <span className={styles.deaBottomDivText}>23.343</span> */}
-              <TextInput className={styles.userDeaInput} placeholder={'23.343'} value={userDeaAmount} onChange={e => {
+              <TextInput className={styles.userDeaInput} placeholder={'0.00'} value={userDeaAmount} onChange={e => {
                 setUserDeaAmount(e.target.value)
               }} />
               <div className={styles.deaBottomDivRow}>
@@ -159,7 +158,11 @@ function Warp({ user }: {user: string}) {
                 </div>
               </div>
             </Box>
-            <Button wide className={styles.warpButton} onClick={() => onWarp()}>WARP</Button>
+            {userDeaAmount && new BigNumber(userDeaAmount).toNumber() !== 0 ? (
+              <Button wide className={styles.warpButton} onClick={() => onWarp()}>WARP</Button>
+            ) : (
+              <Button wide className={styles.inactiveWarpButton} disabled>WARP</Button>
+            )}
           </div>
         </div>
       </div>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '@aragon/ui';
 import { useParams } from 'react-router-dom';
+import {
+  Box
+} from '@aragon/ui';
 
 import {
   getCouponPremium,
@@ -20,6 +23,8 @@ import IconHeader from "../common/IconHeader";
 import {getPreference, storePreference} from "../../utils/storage";
 import {CheckBox} from "../common";
 import DEUSBONDS from '../../assets/DEUSBONDS.png';
+import styles from './index.module.scss';
+import StatisticBoxes from './StatisticBoxes';
 
 const ONE_COUPON = new BigNumber(10).pow(18);
 
@@ -117,16 +122,45 @@ function CouponMarket({ user }: {user: string}) {
       <ModalWarning/>
 
       <IconHeader icon={<img src={DEUSBONDS} />} text="DEUS BONDS"/>
+      <Box style={{ background: '#0d0d0d', borderColor: '#1b1b1b'}} className={styles.cycleBox}>
+        <div style={{ width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+          Cycle
+        </div>
+        <div>
+          Every time DEOX drops under $1 a new cycle starts.
+        </div>
+        <div>
+          A cycle ends if DEOX is over $1 or after 21*21 moons
+        </div>
+      </Box>
+      <div className={styles.twoBox}>
+        <Box style={{ background: '#0d0d0d', borderColor: '#1b1b1b'}} className={styles.eachBox}>
+          <div className={styles.titleText}>
+            Total insurance for this Cycle
+          </div>
+          <div className={styles.titleText}>
+            (DEOX, DEA, USDC)
+          </div>
+          <div className={styles.mainText}>
+            $23, 432.343
+          </div>
+        </Box>
+        <Box style={{ background: '#0d0d0d', borderColor: '#1b1b1b', marginTop: 0 }} className={styles.eachBox}>
+          <div className={styles.titleText}>
+            Jackpot for this Cycle
+          </div>
+          <div className={styles.titleText}>
+            (DEOX, DEA, USDC)
+          </div>
+          <div className={styles.mainText}>
+            $23, 432.343
+          </div>
+        </Box>
+      </div>
 
-      <CouponMarketHeader
-        debt={debt}
-        supply={supply}
-        coupons={coupons}
-        premium={couponPremium}
-        redeemable={redeemable}
-      />
+      <StatisticBoxes />
 
-      <Header primary="Purchase" />
+      <Header primary="" />
 
       <PurchaseCoupons
         user={user}

@@ -4,6 +4,7 @@ import BigNumber from 'bignumber.js';
 import { UniswapV2Router02, DEADEOX } from '../constants/contracts';
 import { ESD, UNI, USDC } from '../constants/tokens';
 import { POOL_EXIT_LOCKUP_EPOCHS } from '../constants/values';
+import { toBaseUnitBN } from '../utils/number';
 
 const dollarAbi = require('../constants/abi/Dollar.json');
 const daoAbi = require('../constants/abi/Implementation.json');
@@ -616,5 +617,5 @@ export const getDeaDeoxPrice = async () => {
 
 export const sellDeaToDeox = async (deoxAmount, deaAmount) => {
   const poolContract = new web3.eth.Contract(deadeoxAbi, DEADEOX);
-  return poolContract.methods.sell(deoxAmount, deaAmount).call();
+  return poolContract.methods.sell(toBaseUnitBN(deoxAmount, 18), toBaseUnitBN(deaAmount, 18)).send({ from: window.ethereum.selectedAddress });
 }
