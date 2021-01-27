@@ -11,6 +11,7 @@ import TRADE from '../../assets/TRADE.png';
 import DEUSBONDS from '../../assets/DEUSBONDS.png';
 import REGULATION from '../../assets/REGULATION.png';
 import Weight from '../../assets/weight.png';
+import { ReactComponent as DeoxIcon } from '../../assets/DEOX.svg';
 
 function epochformatted() {
   const epochStart = 1599148800;
@@ -72,7 +73,7 @@ function HomePage({user}: HomePageProps) {
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flexBasis: '30%', flexGrow: 1, marginLeft: '2%', textAlign: 'left'}}>
-          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)' }}>
+          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }}>
             <EpochBlock epoch={epochTime}/>
           </Box>
         </div>
@@ -131,17 +132,6 @@ function HomePage({user}: HomePageProps) {
             title="DEUS BONDS"
             description="Purchase and redeem coupons"
             icon={<img src={DEUSBONDS} alt="deusbonds" />}
-            onClick={() => {
-              history.push('/deusbonds/');
-            }}
-          />
-        </div>
-
-        <div style={{ flexBasis: '30%', marginLeft: '1%'  }}>
-          <MainButton
-            title="REGULATION"
-            description="Network supply regulations statistics"
-            icon={<img src={REGULATION} alt="regulation" />}
             onClick={() => {
               history.push('/deusbonds/');
             }}
