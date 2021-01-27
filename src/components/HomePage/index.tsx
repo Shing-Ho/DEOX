@@ -137,6 +137,17 @@ function HomePage({user}: HomePageProps) {
             }}
           />
         </div>
+
+        <div style={{ flexBasis: '30%', marginLeft: '1%'  }}>
+          <MainButton
+            title="REGULATION"
+            description="Network supply regulations statistics"
+            icon={<img src={REGULATION} alt="regulation" />}
+            onClick={() => {
+              history.push('/deusbonds/');
+            }}
+          />
+        </div>
       </div>
     </>
   );
