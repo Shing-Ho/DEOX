@@ -36,8 +36,12 @@
   .mainPart {
     margin-top: 70px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     svg {
-      width: 850px;
+      max-width: 850px;
+      width: 90%;
     }
     .exchangePart {
       width: 100%;
@@ -51,7 +55,8 @@
       flex-direction: column;
       align-items: center;
       .bottomPart {
-        width: 550px;
+        max-width: 550px;
+        width: 70%;
         .deox {
           background: linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%);
           border-radius: 10px;
@@ -164,6 +169,10 @@
             justify-content: space-between;
             margin-top: 30px;
             align-items: center;
+            @media screen and (max-width: 767px) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
             .deaBigText {
               font-family: Edu Monument Grotesk Mono;
               font-style: normal;
@@ -177,6 +186,9 @@
             .deaButtons {
               display: flex;
               flex-direction: row;
+              @media screen and (max-width: 767px) {
+                margin-top: 10px;
+              }
               .deaInactiveButton {
                 background: #d2dee6;
                 width: 50px;
@@ -184,6 +196,10 @@
                 margin-left: 10px;
                 border: 1px solid #647fa1;
                 border-radius: 6px;
+                @media screen and (max-width: 767px) {
+                  margin-left: 0px;
+                  margin-right: 10px;
+                }
                 span {
                   font-family: Edu Monument Grotesk Mono;
                   font-style: normal;
@@ -203,6 +219,10 @@
                 margin-left: 10px;
                 border: 1px solid #647fa1;
                 border-radius: 6px;
+                @media screen and (max-width: 767px) {
+                  margin-left: 0px;
+                  margin-right: 10px;
+                }
                 span {
                   font-family: Edu Monument Grotesk Mono;
                   font-style: normal;
@@ -234,6 +254,10 @@
                   align-items: center;
                   text-align: right;
                   color: rgba(0, 0, 0, 0.5);
+                  @media screen and (max-width: 767px) {
+                    margin-left: 0px;
+                    margin-right: 10px;
+                  }
                 }
                 .percent {
                   color: black;
@@ -248,6 +272,11 @@
                   align-items: center;
                   text-align: right;
                   color: #000000;
+                  @media screen and (max-width: 767px) {
+                    margin-left: 0px;
+                    margin-right: 10px;
+                    right: 3px;
+                  }
                 }
               }
             }
@@ -284,9 +313,22 @@
     }
     .topPart {
       position: absolute;
-      top: 100px;
-      left: 150px;
-      width: 550px;
+      top: 150px;
+      max-width: 550px;
+      width: 70%;
+      @media screen and (max-width: 1024px) {
+        top: 170px;
+      }
+      @media screen and (max-width: 768px) {
+        top: 170px;
+      }
+      @media screen and (max-width: 600px) {
+        top: 200px;
+      }
+      @media screen and (max-width: 425px) {
+        top: 240px;
+      }
+
       .deaTop {
         background: linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%);
         border: 1px solid #FFFFFF;

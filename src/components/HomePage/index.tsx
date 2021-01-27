@@ -5,8 +5,8 @@ import {
 } from '@aragon/ui';
 import EpochBlock from "../common/EpochBlock";
 import LOCK from '../../assets/LockIcon.png';
-import DEOXDEA from '../../assets/DEOXDEA.png';
-import DEOXUSDC from '../../assets/DEOXUSDC.png';
+import DEOXDEA from '../../assets/Liquidity.png';
+import DEOXUSDC from '../../assets/Liquidity.png';
 import TRADE from '../../assets/TRADE.png';
 import DEUSBONDS from '../../assets/DEUSBONDS.png';
 import REGULATION from '../../assets/REGULATION.png';
@@ -61,7 +61,7 @@ function HomePage({user}: HomePageProps) {
       <div style={{ marginBottom: 50, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <img src={Weight} alt="weight" />
         <div style={{ fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 30, color: 'white' }}>
-          DEOX THE STABLE COIN OF DEUS
+          THE STABLE COIN OF DEUS
         </div>
         <div style={{ fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 15, color: 'rgba(255,255,255,0.7)', textAlign: 'center' }}>
           Buy, sell, and provide liquidity for DEOX to earn.
@@ -93,8 +93,9 @@ function HomePage({user}: HomePageProps) {
         <div style={{ flexBasis: '30%' }}>
           <MainButton
             title="LP Rewards"
+            subTitle="DEOX/DEA"
             description="Earn rewards for providing liquidity"
-            icon={<img src={DEOXDEA} alt="deoxdea" />}
+            icon={<img src={DEOXDEA} alt="deoxdea" width="35" />}
             onClick={() => {
               history.push('/deoxdea/');
             }}
@@ -104,8 +105,9 @@ function HomePage({user}: HomePageProps) {
         <div style={{ flexBasis: '30%', marginLeft: '1%' }}>
           <MainButton
             title="LP Rewards"
+            subTitle="DEOX/USDC"
             description="Earn rewards for providing liquidity"
-            icon={<img src={DEOXUSDC} alt="deoxusdc" />}
+            icon={<img src={DEOXUSDC} alt="deoxusdc" width="35" />}
             onClick={() => {
               history.push('/deoxusdc/');
             }}
@@ -153,17 +155,18 @@ function HomePage({user}: HomePageProps) {
 type MainButtonPropx = {
   title: string,
   description: string,
+  subTitle?: string,
   icon: any,
   onClick: Function,
   tag?:string
 }
 
 function MainButton({
-  title, description, icon, onClick, tag,
+  title, subTitle, description, icon, onClick, tag,
 }:MainButtonPropx) {
   return (
     <LinkBase onClick={onClick} style={{ width: '100%' }}>
-      <Box style={{ backgroundColor: '#d7eefe' }}>
+      <Box style={{ backgroundColor: '#d7eefe', height: 190, borderRadius: 10 }}>
         <div style={{ padding: 0, fontSize: 25, fontWeight: 400, color: 'black' }}>
           {title}
           {tag ? <Tag>{tag}</Tag> : <></>}
@@ -172,8 +175,9 @@ function MainButton({
           {icon}
         </span>
         {/*<img alt="icon" style={{ padding: 10, height: 64 }} src={iconUrl} />*/}
-        <div style={{ paddingTop: 5, opacity: 0.5, color: 'rgba(0,0,0,0.5)', fontSize: 15, fontWeight: 400 }}>
+        <div style={{ paddingTop: 5, fontFamily: 'Edu Monument Grotesk Semi-Mono', color: 'rgba(0,0,0,0.5)', fontSize: 12.5, fontWeight: 400 }}>
           {' '}
+          {subTitle ? <div>{subTitle}</div> : <div style={{marginTop: 10}} />}
           {description}
           {' '}
         </div>
