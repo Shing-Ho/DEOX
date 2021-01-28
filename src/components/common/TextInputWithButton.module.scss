@@ -1,0 +1,33 @@
+.main {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  .textInput {
+    width: 100%;
+    padding-right: 40%;
+  }
+  .button {
+    width: 30%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+  }
+}
+.wide {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  .textInput {
+    width: 100%;
+    padding-right: 30%;
+  }
+  .button {
+    width: 30%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+  }
+}

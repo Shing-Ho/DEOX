@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .bondDiv {
+    width: 58%;
+    .bondBox {
+      height: 388px;
+      &>div {
+        padding: 12px 24px;
+      }
+      .topHeader {
+        width: '100%';
+        font-family: 'Edu Monument Grotesk Semi-Mono';
+        font-size: 12px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+      }
+      .boxMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 30px;
+        .apyText {
+          font-family: Edu Monument Grotesk Semi-Mono;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 28px;
+          text-align: center;
+          color: #FFFFFF;
+          text-shadow: 0px 0px 10px #FFFFFF;
+          margin-top: 20px;
+        }
+        .apyDescription {
+          font-family: Edu Monument Grotesk Semi-Mono;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.5px;
+          line-height: 17px;
+          text-align: center;
+          color: #FFFFFF;
+          margin-bottom: 30px;
+        }
+        .purchaseButton {
+          width: 300px;
+          margin-top: 15px;
+        }
+        .priceDescription {
+          font-family: Edu Monument Grotesk Semi-Mono;
+          font-style: normal;
+          font-weight: 4600;
+          font-size: 12px;
+          line-height: 14px;
+          text-align: center;
+          background: linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-top: 15px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+  .cycleDiv {
+    width: 40%;
+    .cycleBox {
+      height: 388px;
+      &>div {
+        padding: 12px 24px;
+      }
+      .topHeader {
+        width: '100%';
+        font-family: Edu Monument Grotesk Semi-Mono;
+        font-size: 12px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+      }
+      .claimTitle {
+        font-family: Edu Monument Grotesk Semi-Mono;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 17px;
+        color: #FFFFFF;
+      }
+      .claimDescription {
+        font-family: Edu Monument Grotesk Semi-Mono;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 17px;
+        color: rgba(255,255,255,0.5);
+        margin-top: 3px;
+        margin-bottom: 20px;
+      }
+      .eachInputDiv {
+        margin-top: 15px;
+        .claimTextInput {
+          width: 100% !important;
+        }
+      }
+      .bottomDiv {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .claimAll {
+          width: 165px;
+        }
+        .totalText {
+          font-family: Edu Monument Grotesk Semi-Mono;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 17px;
+          text-align: center;
+          color: #FFFFFF;
+          opacity: 0.5;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

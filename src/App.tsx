@@ -11,7 +11,7 @@ import Trade from './components/Trade/index';
 import Footer from './components/Footer';
 import Wallet from "./components/Wallet";
 import EpochDetail from "./components/EpochDetail";
-import CouponMarket from "./components/CouponMarket";
+import DeusBond from "./components/DeusBond";
 import Governance from "./components/Governance";
 import Candidate from "./components/Candidate";
 import Regulation from "./components/Regulation";
@@ -79,8 +79,8 @@ function App() {
                   <Route path="/stake/:override"><Wallet user={user}/></Route>
                   <Route path="/stake/"><Wallet user={user}/></Route>
                   <Route path="/epoch/"><EpochDetail user={user}/></Route>
-                  <Route path="/deusbonds/:override"><CouponMarket user={user}/></Route>
-                  <Route path="/deusbonds/"><CouponMarket user={user}/></Route>
+                  <Route path="/deusbonds/:override"><DeusBond user={user}/></Route>
+                  <Route path="/deusbonds/"><DeusBond user={user}/></Route>
                   <Route path="/governance/candidate/:candidate"><Candidate user={user}/></Route>
                   <Route path="/governance/"><Governance user={user}/></Route>
                   <Route path="/trade/"><Trade user={user}/></Route>
