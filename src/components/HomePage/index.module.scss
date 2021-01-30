@@ -1,0 +1,6 @@
+.boxStyle {
+  height: 196px;
+  &>div {
+    padding: 7px 21px;
+  }
+}

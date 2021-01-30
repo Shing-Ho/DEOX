@@ -4,6 +4,7 @@ import {
   Box, LinkBase, Tag,
 } from '@aragon/ui';
 import EpochBlock from "../common/EpochBlock";
+import Jackpot from './Jackpot';
 import LOCK from '../../assets/LockIcon.png';
 import DEOXDEA from '../../assets/Liquidity.png';
 import DEOXUSDC from '../../assets/Liquidity.png';
@@ -12,6 +13,8 @@ import DEUSBONDS from '../../assets/DEUSBONDS.png';
 import REGULATION from '../../assets/REGULATION.png';
 import Weight from '../../assets/weight.png';
 import { ReactComponent as DeoxIcon } from '../../assets/DEOX.svg';
+
+import styles from './index.module.scss';
 
 function epochformatted() {
   const epochStart = 1599148800;
@@ -72,12 +75,20 @@ function HomePage({user}: HomePageProps) {
         </div>
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', flexGrow: 1, marginLeft: '2%', textAlign: 'left'}}>
-          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }}>
+        <div style={{ flexBasis: '30%', marginLeft: '2%', marginRight: '1%', textAlign: 'left'}}>
+          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }} className={styles.boxStyle}>
             <EpochBlock epoch={epochTime}/>
           </Box>
         </div>
-        <div style={{ flexBasis: '68%' }} />
+        <div style={{ flexBasis: '30%', textAlign: 'left'}}>
+          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }} className={styles.boxStyle}>
+            <Jackpot price="$23,432.343" />
+          </Box>
+        </div>
+        <div style={{ flexBasis: '30%', marginLeft: '1%', textAlign: 'left', height: 196}}>
+          <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', height: '100%', borderRadius: 10 }}>
+          </Box>
+        </div>
       </div>
       <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%'  }}>
