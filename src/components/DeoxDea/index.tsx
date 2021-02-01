@@ -26,6 +26,7 @@ import Migrate from "./Migrate";
 import {getLegacyPoolAddress, getPoolAddress} from "../../utils/pool";
 import {DollarPool4} from "../../constants/contracts";
 import Liquidity from '../../assets/Liquidity.png';
+import DEOXLogo from '../common/DEOXLogo';
 
 
 
@@ -169,6 +170,7 @@ function Pool({ user }: {user: string}) {
   const hasLegacyBalance = legacyUserStagedBalance.isGreaterThan(0) || legacyUserClaimableBalance.isGreaterThan(0) || legacyUserBondedBalance.isGreaterThan(0);
   return (
     <>
+      <DEOXLogo />
       <IconHeader icon={<img src={Liquidity} style={{width: 22, height: 22}} />} text="LIQUIDITY - DEOX/DEA" small />
 
       {hasLegacyBalance ?
@@ -217,6 +219,7 @@ function Pool({ user }: {user: string}) {
         poolAddress={poolAddress}
         claimable={userClaimableBalance}
         status={userStatus}
+        lockup={lockup}
       />
 
       <Provide

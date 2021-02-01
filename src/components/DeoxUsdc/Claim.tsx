@@ -10,16 +10,18 @@ import {claimPool} from '../../utils/web3';
 import {isPos, toBaseUnitBN} from '../../utils/number';
 import {ESD} from "../../constants/tokens";
 import BigNumberInput from "../common/BigNumberInput";
+import TextBlock from "../common/TextBlock";
 import Button from '../common/Button';
 
 type ClaimProps = {
   poolAddress: string
   claimable: BigNumber,
-  status: number
+  status: number,
+  lockup: number
 };
 
 function Claim({
-  poolAddress, claimable, status
+  poolAddress, claimable, status, lockup
 }: ClaimProps) {
   const [claimAmount, setClaimAmount] = useState(new BigNumber(0));
 
@@ -30,8 +32,11 @@ function Claim({
       </div>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* total Issued */}
-        <div style={{flexBasis: '32%'}}>
-          <BalanceBlock asset="Claimable" balance={claimable} suffix={"ESD"} />
+        <div style={{flexBasis: '16%'}}>
+          <BalanceBlock asset="Claimable" balance={claimable} suffix={"DEOX"} />
+        </div>
+        <div style={{flexBasis: '16%'}}>
+          <TextBlock label="Exit Lockup" text={lockup === 0 ? "" : lockup === 1 ? "1 epoch" : `${lockup} epochs`}/>
         </div>
         {/* Deposit UNI-V2 into Pool */}
         <div style={{flexBasis: '35%'}}/>
@@ -40,15 +45,17 @@ function Claim({
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="ESD"
+                  adornment={
+                    <MaxButton
+                      onClick={() => {
+                        setClaimAmount(claimable);
+                      }}
+                    />
+                  }
+                  suffix="DEOX"
                   value={claimAmount}
                   setter={setClaimAmount}
                   disabled={status !== 0}
-                />
-                <MaxButton
-                  onClick={() => {
-                    setClaimAmount(claimable);
-                  }}
                 />
               </>
             </div>

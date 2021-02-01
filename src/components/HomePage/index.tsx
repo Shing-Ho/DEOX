@@ -134,7 +134,7 @@ function HomePage({user}: HomePageProps) {
             description="Trade DEOX"
             icon={<img src={TRADE} alt="trade" />}
             onClick={() => {
-              history.push('/governance/');
+              window.open('https://app.deus.finance/swap', '_blank');
             }}
           />
         </div>

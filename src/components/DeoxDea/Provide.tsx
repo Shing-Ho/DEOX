@@ -52,16 +52,16 @@ function Provide({
   return (
     <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
       <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
-        PROVIDE
+        CLAIM
       </div>
       {userUSDCAllowance.comparedTo(MAX_UINT256.dividedBy(2)) > 0 ?
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total rewarded */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"ESD"} />
+            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"DEOX"} />
           </div>
           <div style={{flexBasis: '33%'}}>
-            <BalanceBlock asset="USDC Balance" balance={userUSDCBalance} suffix={"USDC"} />
+            <BalanceBlock asset="DEA Balance" balance={userUSDCBalance} suffix={"DEA"} />
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Provide liquidity using Pool rewards */}
@@ -103,10 +103,10 @@ function Provide({
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total rewarded */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"ESD"} />
+            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"DEOX"} />
           </div>
           <div style={{flexBasis: '33%'}}>
-            <BalanceBlock asset="USDC Balance" balance={userUSDCBalance} suffix={"USDC"} />
+            <BalanceBlock asset="DEA Balance" balance={userUSDCBalance} suffix={"DEA"} />
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Approve Pool to spend USDC */}
@@ -122,8 +122,8 @@ function Provide({
           </div>
         </div>
       }
-      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center'}}>
-        <span style={{ opacity: 0.5 }}> Zap your rewards directly to LP by providing more USDC </span>
+      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', marginTop: 50}}>
+        <span style={{ opacity: 0.5 }}> Zap your rewards directly to LP by providing more DEA </span>
       </div>
     </Box>
   );

@@ -58,10 +58,10 @@ function Provide({
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total rewarded */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"ESD"} />
+            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"DEOX"} />
           </div>
           <div style={{flexBasis: '33%'}}>
-            <BalanceBlock asset="USDC Balance" balance={userUSDCBalance} suffix={"USDC"} />
+            <BalanceBlock asset="DEA Balance" balance={userUSDCBalance} suffix={"USDC"} />
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Provide liquidity using Pool rewards */}
@@ -103,10 +103,10 @@ function Provide({
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           {/* total rewarded */}
           <div style={{flexBasis: '32%'}}>
-            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"ESD"} />
+            <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"DEOX"} />
           </div>
           <div style={{flexBasis: '33%'}}>
-            <BalanceBlock asset="USDC Balance" balance={userUSDCBalance} suffix={"USDC"} />
+            <BalanceBlock asset="DEA Balance" balance={userUSDCBalance} suffix={"USDC"} />
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Approve Pool to spend USDC */}
@@ -122,7 +122,7 @@ function Provide({
           </div>
         </div>
       }
-      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center'}}>
+      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', marginTop: 50}}>
         <span style={{ opacity: 0.5 }}> Zap your rewards directly to LP by providing more USDC </span>
       </div>
     </Box>
