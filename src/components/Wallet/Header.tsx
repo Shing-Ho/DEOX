@@ -34,9 +34,6 @@ const AccountPageHeader = ({
     <div style={{ flexBasis: '20%' }}>
       <BalanceBlock asset="Bonded" balance={accountBondedBalance} suffix={" DEOX"} />
     </div>
-    <div style={{ flexBasis: '20%' }}>
-      <TextBlock label="Status" text={status(accountStatus, unlocked)}/>
-    </div>
   </div>
 );
 

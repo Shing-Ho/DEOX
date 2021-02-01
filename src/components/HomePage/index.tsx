@@ -123,6 +123,7 @@ function HomePage({user}: HomePageProps) {
             onClick={() => {
               history.push('/deoxusdc/');
             }}
+            disabled
           />
         </div>
       </div>
@@ -170,15 +171,16 @@ type MainButtonPropx = {
   subTitle?: string,
   icon: any,
   onClick: Function,
-  tag?:string
+  tag?:string,
+  disabled?: boolean,
 }
 
 function MainButton({
-  title, subTitle, description, icon, onClick, tag,
+  title, subTitle, description, icon, onClick, tag, disabled
 }:MainButtonPropx) {
   return (
     <LinkBase onClick={onClick} style={{ width: '100%' }}>
-      <Box style={{ backgroundColor: '#d7eefe', height: 190, borderRadius: 10 }}>
+      <Box style={{ backgroundColor: '#d7eefe', height: 190, borderRadius: 10, opacity: disabled ? 0.5 : 1 }}>
         <div style={{ padding: 0, fontSize: 25, fontWeight: 400, color: 'black' }}>
           {title}
           {tag ? <Tag>{tag}</Tag> : <></>}

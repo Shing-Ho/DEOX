@@ -46,21 +46,22 @@ function BondUnbond({
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="DEOX"
+                  adornment={
+                    <MaxButton
+                      onClick={() => {
+                        setBondAmount(staged);
+                      }}
+                    />}
+                  suffix="DEOX"
                   value={bondAmount}
                   setter={setBondAmount}
-                />
-                <MaxButton
-                  onClick={() => {
-                    setBondAmount(staged);
-                  }}
                 />
               </>
             </div>
             <div style={{width: '40%', minWidth: '7em'}}>
               <Button
                 wide
-                label="Bond"
+                label="Lock"
                 onClick={() => {
                   bond(
                     ESDS.addr,
@@ -79,21 +80,23 @@ function BondUnbond({
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
-                  adornment="DEOX"
+                  adornment={
+                    <MaxButton
+                      onClick={() => {
+                        setUnbondAmount(bonded);
+                      }}
+                    />
+                  }
+                  suffix="DEOX"
                   value={unbondAmount}
                   setter={setUnbondAmount}
-                />
-                <MaxButton
-                  onClick={() => {
-                    setUnbondAmount(bonded);
-                  }}
                 />
               </>
             </div>
             <div style={{width: '40%', minWidth: '7em'}}>
               <Button
                 wide
-                label="Unbond"
+                label="Unlock"
                 onClick={() => {
                   unbondUnderlying(
                     ESDS.addr,
@@ -106,7 +109,7 @@ function BondUnbond({
           </div>
         </div>
       </div>
-      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center'}}>
+      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', fontSize: 14, marginTop: 50, marginBlock: 20}}>
         <span style={{ opacity: 0.5 }}> Bonding events will restart the lockup timer </span>
       </div>
     </Box>

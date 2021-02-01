@@ -14,11 +14,11 @@ function IconHeader({ icon, text, small }: IconHeaderProps) {
   return (
     <>
       <div style={{ padding: '1%', display: 'flex', alignItems: 'center' }}>
-        <div style={small ? { marginRight: '1%', fontSize: 32 } : { marginRight: '2%', fontSize: 48 }}>
+        <div style={small ? { marginRight: '1%', fontSize: 25 } : { marginRight: '2%', fontSize: 48 }}>
           {icon}
         </div>
         <div>
-          <Header primary={text} />
+          <Header primary={text} style={{ fontSize: 25 }} />
         </div>
       </div>
     </>

@@ -169,7 +169,7 @@ function Pool({ user }: {user: string}) {
   const hasLegacyBalance = legacyUserStagedBalance.isGreaterThan(0) || legacyUserClaimableBalance.isGreaterThan(0) || legacyUserBondedBalance.isGreaterThan(0);
   return (
     <>
-      <IconHeader icon={<img src={Liquidity} />} text="LIQUIDITY - DEOX/DEA" small />
+      <IconHeader icon={<img src={Liquidity} style={{width: 22, height: 22}} />} text="LIQUIDITY - DEOX/DEA" small />
 
       {hasLegacyBalance ?
         <>

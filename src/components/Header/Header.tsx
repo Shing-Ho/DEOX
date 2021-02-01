@@ -47,14 +47,23 @@ export default function Header({ hasWeb3, user, setUser }: HeaderProps) {
             { title: 'WARP', link: '/warp/' },
           ]}
         />
-        <div className={styles.rowItem}>
-          <span className={styles.text}>LEARN</span>
-          <DownIcon />
-        </div>
-        <div className={styles.rowItem}>
-          <span className={styles.text}>APP</span>
-          <DownIcon />
-        </div>
+        <TwoLinkButton
+          title="LEARN"
+          items={[
+            { title: 'DEUS wiki', link: 'https://wiki.deus.finance/' },
+            { title: 'LITEPAPER', link: 'https://deus.finance/litepaper.pdf' },
+          ]}
+        />
+        <TwoLinkButton
+          title="APP"
+          items={[
+            { title: 'SWAP', link: 'https://app.deus.finance/swap' },
+            { title: 'COINBASE', link: 'https://app.deus.finance/coinbase' },
+            { title: 'BAKKT', link: 'https://app.deus.finance/bakkt' },
+            { title: 'STAKING', link: 'https://app.deus.finance/staking' },
+            { title: 'VAULTS', link: 'https://app.deus.finance/vaults' },
+          ]}
+        />
       </div>
     </div>
   )
@@ -100,11 +109,33 @@ function TwoLinkButton({ title, items }: twolinkButtonProps) {
       <span className={styles.overlay}>
         {
           items.map(item => {
-            return (
-              <NavLink
-                to={item.link}
-                component={LinkBase}
-                external={false}
+            if(!item.link.includes('https://')) {
+              return (
+                <NavLink
+                  to={item.link}
+                  component={LinkBase}
+                  external={false}
+                  key={item.link}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    paddingLeft: '8px',
+                    marginRight: '8px',
+                    height: '40px',
+                    opacity: 1,
+                    borderBottomWidth: 2, borderBottomStyle: 'solid', borderBottomColor: '#1b1b1b',
+                    width: '100%'
+                  }}
+                  activeStyle={{ opacity: 1, borderRadius: 0 }}
+                >
+                  <span style={{ display: 'block', padding: '1%', fontSize: '17px' }}>{item.title}</span>
+                </NavLink>
+              )
+            } else {
+              return (<a
+                href={item.link}
+                target="_blank"
+                key={item.link}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -113,13 +144,13 @@ function TwoLinkButton({ title, items }: twolinkButtonProps) {
                   height: '40px',
                   opacity: 1,
                   borderBottomWidth: 2, borderBottomStyle: 'solid', borderBottomColor: '#1b1b1b',
-                  width: '100%'
+                  width: '100%',
+                  textDecoration: 'none'
                 }}
-                activeStyle={{ opacity: 1, borderRadius: 0 }}
               >
                 <span style={{ display: 'block', padding: '1%', fontSize: '17px' }}>{item.title}</span>
-              </NavLink>
-            )
+              </a>)
+            }
           })
         }
       </span>

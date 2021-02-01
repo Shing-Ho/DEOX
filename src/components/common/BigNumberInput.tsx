@@ -10,10 +10,11 @@ type BigNumberInputProps = {
   value: BigNumber,
   setter: (value: BigNumber) => void
   adornment?: any,
-  disabled?: boolean
+  disabled?: boolean,
+  suffix?: string,
 }
 
-function BigNumberInput({ value, setter, adornment, disabled=false }: BigNumberInputProps) {
+function BigNumberInput({ value, setter, adornment, disabled=false, suffix }: BigNumberInputProps) {
   return (
     <div className={styles.main}>
       <TextInput
@@ -37,6 +38,17 @@ function BigNumberInput({ value, setter, adornment, disabled=false }: BigNumberI
         disabled={disabled}
         style={{ backgroundColor: 'transparent', borderColor: '#1b1b1b' }}
       />
+      {
+        suffix ? (
+          <span style={{
+            position: 'absolute',
+            top: 9,
+            left: 25 + ((value.isNegative() ? '' : value.toFixed()).length - 1) * 8,
+          }}>
+            {suffix}
+          </span>
+        ) : null
+      }
     </div>
   );
 }

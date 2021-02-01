@@ -15,9 +15,11 @@ import { toTokenUnitsBN } from '../../utils/number';
 import AccountPageHeader from "./Header";
 import WithdrawDeposit from "./WithdrawDeposit";
 import BondUnbond from "./BondUnbond";
+import DEOXLogo from '../common/DEOXLogo';
 import IconHeader from "../common/IconHeader";
 import {getPoolAddress} from "../../utils/pool";
 import {DollarPool4} from "../../constants/contracts";
+import {ReactComponent as LockIcon} from '../../assets/Lock.svg';
 
 function Wallet({ user }: {user: string}) {
   const { override } = useParams();
@@ -100,6 +102,9 @@ function Wallet({ user }: {user: string}) {
 
   return (
     <>
+      <DEOXLogo />
+
+      <IconHeader icon={<LockIcon width={22} height={22} />} text="LOCK" small />
 
       <AccountPageHeader
         accountESDBalance={userESDBalance}

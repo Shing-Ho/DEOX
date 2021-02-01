@@ -59,7 +59,7 @@ function ConnectButton({ hasWeb3, user, setUser }: connectButtonProps) {
   ) : (
     <>
       <ConnectModal visible={isModalOpen} onClose={toggleModal} onConnect={connectWeb3}/>
-      <Button label="connect wallet" onClick={toggleModal} disabled={!hasWeb3} style={{ backgroundColor: '#0e1d1d', borderColor: '#234545' }} />
+      <Button label="connect wallet" onClick={toggleModal} disabled={!hasWeb3} style={{ backgroundColor: '#0e1d1d', borderColor: '#234545', borderRadius: 6 }} />
     </>
   );
 }

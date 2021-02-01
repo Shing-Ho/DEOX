@@ -23,10 +23,9 @@ function BalanceBlock({ asset, balance, suffix=""}: BlanceBlockProps) {
     <>
       <div style={{ fontSize: 14, padding: 0 }}>{asset}</div>
       <div style={{ padding: 0 }}>
-        <span style={{ fontSize: 24 }}>{integer}</span>
+        <span style={{ fontSize: 18 }}>{integer}</span>
         .
         <span style={{ fontSize: 18 }}>
-          {' '}
           {digits}
           {' '}
         </span>

@@ -4,6 +4,7 @@ import BigNumber from 'bignumber.js';
 import { BalanceBlock } from '../common/index';
 import TextBlock from "../common/TextBlock";
 import {ownership} from "../../utils/number";
+import Button from '../common/Button';
 
 type PoolPageHeaderProps = {
   accountUNIBalance: BigNumber,
@@ -25,20 +26,26 @@ const PoolPageHeader = ({
   accountUNIBalance, accountBondedBalance, accountRewardedESDBalance, accountClaimableESDBalance, poolTotalBonded, accountPoolStatus, unlocked
 }: PoolPageHeaderProps) => (
   <div style={{ padding: '2%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-    <div style={{ flexBasis: '20%' }}>
+    <div style={{ flexBasis: '15%' }}>
       <BalanceBlock asset="Balance" balance={accountUNIBalance}  suffix={" UNI-V2"}/>
     </div>
-    <div style={{ flexBasis: '20%' }}>
-      <BalanceBlock asset="Rewarded" balance={accountRewardedESDBalance} suffix={" ESD"} />
+    <div style={{ flexBasis: '15%' }}>
+      <BalanceBlock asset="Rewarded" balance={accountRewardedESDBalance} suffix={" DEOX"} />
     </div>
-    <div style={{ flexBasis: '20%' }}>
-      <BalanceBlock asset="Claimable" balance={accountClaimableESDBalance} suffix={" ESD"} />
+    <div style={{ flexBasis: '15%' }}>
+      <BalanceBlock asset="Claimable" balance={accountClaimableESDBalance} suffix={" DEOX"} />
     </div>
-    <div style={{ flexBasis: '20%' }}>
+    <div style={{ flexBasis: '15%' }}>
       <BalanceBlock asset="Pool Ownership" balance={ownership(accountBondedBalance, poolTotalBonded)}  suffix={"%"}/>
     </div>
-    <div style={{ flexBasis: '20%' }}>
-      <TextBlock label="Pool Status" text={status(accountPoolStatus, unlocked)}/>
+    <div style={{ flexBasis: '38%', display: 'flex', justifyContent: 'flex-end' }}>
+      <Button
+        label={<span>provide Liquidity</span>}
+        style={{
+          filter: 'drop-shadow(0px 2px 4px rgba(100, 100, 100, 0.498039))',
+          borderRadius: 6,
+        }}
+      />
     </div>
   </div>
 );
