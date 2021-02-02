@@ -27,7 +27,8 @@ function WithdrawDeposit({
 }: WithdrawDepositProps) {
   const [depositAmount, setDepositAmount] = useState(new BigNumber(0));
   const [withdrawAmount, setWithdrawAmount] = useState(new BigNumber(0));
-
+  console.log('poolAddress', poolAddress)
+  console.log('user', user)
   return (
     <Box style={{ backgroundColor: '#0d0d0d', borderColor: '#1b1b1b' }}>
       <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>

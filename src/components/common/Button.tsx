@@ -5,7 +5,16 @@ import tooltip from '../../assets/tooltip.png';
 
 import styles from './Button.module.scss';
 
-const CustomButton = ({...props}) => {
+const CustomButton = ({ inputButton=false, ...props}) => {
+  const width = 
+    props.label === 'approve'
+      ? 155
+      : props.label === 'Lock' || props.label === 'Unlock'
+        ? 130
+        : props.label === 'Claim'
+          ? 300
+          : 155;
+  const absoluteStyle = inputButton ? {position: 'absolute', left: -3} : {}
   return (
     <div className={styles.buttonDiv}>
       <Button
@@ -16,6 +25,9 @@ const CustomButton = ({...props}) => {
           opacity: props.disabled ? 0.5 : 1,
           border: '1px solid',
           borderRadius: 6,
+          width: width,
+          fontSize: 15,
+          ...absoluteStyle
         }}
         {...props}
       >

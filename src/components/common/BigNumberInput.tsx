@@ -36,7 +36,7 @@ function BigNumberInput({ value, setter, adornment, disabled=false, suffix }: Bi
           }
         }}
         disabled={disabled}
-        style={{ backgroundColor: 'transparent', borderColor: '#1b1b1b' }}
+        style={{ backgroundColor: 'transparent', borderColor: '#1b1b1b', borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
       />
       {
         suffix ? (

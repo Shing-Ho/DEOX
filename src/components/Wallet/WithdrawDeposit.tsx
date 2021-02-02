@@ -107,14 +107,14 @@ function WithdrawDeposit({
           </div>
         </div>
         :
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', paddingTop: '1%', flexWrap: 'wrap', alignItems: 'center'}}>
           {/* total Issued */}
           <div style={{flexBasis: '32%'}}>
             <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"DEOX"}/>
           </div>
           <div style={{flexBasis: '35%'}}/>
           {/* Approve DAO to spend Døllar */}
-          <div style={{flexBasis: '33%', paddingTop: '2%', justifyContent: 'flex-end', display: 'flex'}}>
+          <div style={{flexBasis: '33%', justifyContent: 'flex-end', display: 'flex'}}>
             <CustomButton
               label="Approve"
               onClick={() => {

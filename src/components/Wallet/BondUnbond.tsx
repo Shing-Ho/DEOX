@@ -32,7 +32,7 @@ function BondUnbond({
       <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
         BOND
       </div>
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
+      <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}} className={styles.bonded}>
           <BalanceBlock asset="Bonded" balance={bonded} suffix={"DEOX"}/>
@@ -42,8 +42,8 @@ function BondUnbond({
           <TextBlock label="Exit Lockup" text={lockup === 0 ? "" : lockup === 1 ? "1 epoch" : `${lockup} epochs`}/>
         </div>
         {/* Bond Døllar within DAO */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}} className={styles.textInputBox}>
-          <div style={{display: 'flex'}}>
+        <div style={{flexBasis: '33%'}} className={styles.textInputBox}>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
@@ -59,7 +59,7 @@ function BondUnbond({
                 />
               </>
             </div>
-            <div style={{width: '40%', minWidth: '7em'}}>
+            <div style={{minWidth: 130}}>
               <Button
                 wide
                 label="Lock"
@@ -69,6 +69,7 @@ function BondUnbond({
                     toBaseUnitBN(bondAmount, ESD.decimals),
                   );
                 }}
+                inputButton
                 disabled={status === 2 || !isPos(bondAmount) || bondAmount.isGreaterThan(staged)}
               />
             </div>
@@ -76,8 +77,8 @@ function BondUnbond({
         </div>
         <div style={{width: '2%'}} />
         {/* Unbond Døllar within DAO */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}} className={styles.textInputBox}>
-          <div style={{display: 'flex'}}>
+        <div style={{flexBasis: '33%'}} className={styles.textInputBox}>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
@@ -94,7 +95,7 @@ function BondUnbond({
                 />
               </>
             </div>
-            <div style={{width: '40%', minWidth: '7em'}}>
+            <div style={{minWidth: 130}}>
               <Button
                 wide
                 label="Unlock"
@@ -104,13 +105,14 @@ function BondUnbond({
                     toBaseUnitBN(unbondAmount, ESD.decimals),
                   );
                 }}
+                inputButton
                 disabled={status === 2 || !isPos(unbondAmount) || unbondAmount.isGreaterThan(bonded)}
               />
             </div>
           </div>
         </div>
       </div>
-      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', fontSize: 14, marginTop: 50, marginBlock: 20}}>
+      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', fontSize: 14, marginTop: 70, marginBottom: 20}}>
         <span style={{ opacity: 0.5 }}> Bonding events will restart the lockup timer </span>
       </div>
     </Box>

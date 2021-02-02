@@ -84,7 +84,9 @@ function Pool({ user }: {user: string}) {
     let isCancelled = false;
 
     async function updateUserInfo() {
+      console.log('updateUserInfo')
       const poolAddressStr = await getPoolAddress();
+      console.log('poolAddressStr', poolAddressStr)
       const legacyPoolAddress = getLegacyPoolAddress(poolAddressStr);
 
       const [

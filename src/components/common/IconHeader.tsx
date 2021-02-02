@@ -15,7 +15,7 @@ type IconHeaderProps = {
 function IconHeader({ icon, text, small }: IconHeaderProps) {
   return (
     <>
-      <div style={{ padding: '1%', display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', paddingLeft: 24 }}>
         <div style={small ? { marginRight: '1%', fontSize: 25 } : { marginRight: '2%', fontSize: 48 }}>
           {icon}
         </div>

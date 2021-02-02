@@ -30,7 +30,7 @@ export default function BondClaim() {
             <TextInput placeholder={'Enter DEOX amount'} value={deoxAmount} onChange={e => {
               setDeoxAmount(e.target.value)
             }} />
-            <Button label="PURCHASE 0.000 dBOND" disabled className={styles.purchaseButton} />
+            <Button label={`PURCHASE ${deoxAmount ? deoxAmount : '0.00'} dBOND`} disabled={!deoxAmount} className={styles.purchaseButton} />
             
             <div className={styles.priceDescription}>
               1 DEOX = 0.34dBOND

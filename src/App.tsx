@@ -72,12 +72,12 @@ function App() {
           <div style={{backgroundColor: 'black'}}>
             <Header hasWeb3={hasWeb3} user={user} setUser={setUser}/>
             {/* <NavBar /> */}
-            <Layout>
+            <Layout style={{ width: '75%', maxWidth: 1400 }}>
             {
               hasWeb3 ?
                 <Switch>
-                  <Route path="/stake/:override"><Wallet user={user}/></Route>
-                  <Route path="/stake/"><Wallet user={user}/></Route>
+                  <Route path="/lock/:override"><Wallet user={user}/></Route>
+                  <Route path="/lock/"><Wallet user={user}/></Route>
                   <Route path="/epoch/"><EpochDetail user={user}/></Route>
                   <Route path="/deusbonds/:override"><DeusBond user={user}/></Route>
                   <Route path="/deusbonds/"><DeusBond user={user}/></Route>

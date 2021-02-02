@@ -34,7 +34,7 @@ function NavBar() {
             </div>
             <div style={{ width: '80%', textAlign: 'right' }}>
               <LinkButton title="DASHBOARD" to="//" />
-              <LinkButton title="STAKE" to="/stake/" />
+              <LinkButton title="STAKE" to="/lock/" />
               <TwoLinkButton title="LIQUIDITY" />
               {/* <LinkButton title="TRADE" to="/trade/" /> */}
 

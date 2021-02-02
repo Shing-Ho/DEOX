@@ -22,7 +22,7 @@ function BalanceBlock({ asset, balance, suffix=""}: BlanceBlockProps) {
   return (
     <>
       <div style={{ fontSize: 14, padding: 0 }}>{asset}</div>
-      <div style={{ padding: 0 }}>
+      <div style={{ padding: 0, marginTop: 5 }}>
         <span style={{ fontSize: 18 }}>{integer}</span>
         .
         <span style={{ fontSize: 18 }}>
