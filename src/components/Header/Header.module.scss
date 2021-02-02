@@ -73,6 +73,9 @@
   .right {
     display: flex;
     flex-direction: row;
+    &>span {
+      margin-right: 20px;
+    }
     .rowItem {
       display: flex;
       flex-direction: row;
@@ -115,6 +118,10 @@
     border-top-right-radius: 0px;
     width: 200px;
     border-top-width: 0px;
+    @media screen and (max-width: 700px) {
+      left: -10px;
+      top: 42px;
+    }
   }
   &:hover {
     .overlay {

@@ -12,6 +12,7 @@ import { ESD, ESDS } from "../../constants/tokens";
 import BigNumberInput from "../common/BigNumberInput";
 import TextBlock from "../common/TextBlock";
 import Button from '../common/Button';
+import styles from './BondUnbond.module.scss';
 
 type BondUnbondProps = {
   staged: BigNumber,
@@ -33,15 +34,15 @@ function BondUnbond({
       </div>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {/* Total bonded */}
-        <div style={{flexBasis: '16%'}}>
+        <div style={{flexBasis: '16%'}} className={styles.bonded}>
           <BalanceBlock asset="Bonded" balance={bonded} suffix={"DEOX"}/>
         </div>
         {/* Total bonded */}
-        <div style={{flexBasis: '16%'}}>
+        <div style={{flexBasis: '16%'}} className={styles.exitLookup}>
           <TextBlock label="Exit Lockup" text={lockup === 0 ? "" : lockup === 1 ? "1 epoch" : `${lockup} epochs`}/>
         </div>
         {/* Bond Døllar within DAO */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}}>
+        <div style={{flexBasis: '33%', paddingTop: '2%'}} className={styles.textInputBox}>
           <div style={{display: 'flex'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
@@ -73,9 +74,9 @@ function BondUnbond({
             </div>
           </div>
         </div>
-        <div style={{width: '2%'}}/>
+        <div style={{width: '2%'}} />
         {/* Unbond Døllar within DAO */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}}>
+        <div style={{flexBasis: '33%', paddingTop: '2%'}} className={styles.textInputBox}>
           <div style={{display: 'flex'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>

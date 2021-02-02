@@ -1,0 +1,10 @@
+.bonded, .exitLookup {
+  @media screen and (max-width: 768px) {
+    flex-basis: 50% !important;
+  }
+}
+.textInputBox {
+  @media screen and (max-width: 768px) {
+    flex-basis: 100% !important;
+  }
+}

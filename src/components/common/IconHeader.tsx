@@ -4,6 +4,8 @@ import {
   Header,
 } from '@aragon/ui';
 
+import styles from './IconHeader.module.scss';
+
 type IconHeaderProps = {
   icon: any,
   text: string
@@ -18,7 +20,7 @@ function IconHeader({ icon, text, small }: IconHeaderProps) {
           {icon}
         </div>
         <div>
-          <Header primary={text} style={{ fontSize: 25 }} />
+          <Header primary={text} style={{ fontSize: 25 }} className={styles.header} />
         </div>
       </div>
     </>

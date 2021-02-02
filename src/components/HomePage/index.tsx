@@ -74,24 +74,24 @@ function HomePage({user}: HomePageProps) {
           This should be some text explaining everything briefly.
         </div>
       </div>
-      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', marginLeft: '2%', marginRight: '1%', textAlign: 'left'}}>
+      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }} className={styles.boxes}>
+        <div style={{ flexBasis: '30%', marginLeft: '2%', marginRight: '1%', textAlign: 'left'}} className={styles.box}>
           <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }} className={styles.boxStyle}>
             <EpochBlock epoch={epochTime}/>
           </Box>
         </div>
-        <div style={{ flexBasis: '30%', textAlign: 'left'}}>
+        <div style={{ flexBasis: '30%', textAlign: 'left'}} className={styles.box}>
           <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', borderRadius: 10 }} className={styles.boxStyle}>
             <Jackpot price="$23,432.343" />
           </Box>
         </div>
-        <div style={{ flexBasis: '30%', marginLeft: '1%', textAlign: 'left', height: 196}}>
+        <div style={{ flexBasis: '30%', marginLeft: '1%', textAlign: 'left', height: 196}} className={styles.box}>
           <Box style={{ background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)', height: '100%', borderRadius: 10 }}>
           </Box>
         </div>
       </div>
-      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%'  }}>
+      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }} className={styles.boxes}>
+        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%'  }} className={styles.box}>
           <MainButton
             title="LOCK"
             description="Earn rewards for locking DEOX"
@@ -102,7 +102,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%' }}>
+        <div style={{ flexBasis: '30%' }} className={styles.box}>
           <MainButton
             title="LP Rewards"
             subTitle="DEOX/DEA"
@@ -114,7 +114,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '1%' }}>
+        <div style={{ flexBasis: '30%', marginLeft: '1%' }} className={styles.box}>
           <MainButton
             title="LP Rewards"
             subTitle="DEOX/USDC"
@@ -127,8 +127,8 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
       </div>
-      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%' }}>
+      <div style={{ padding: '1%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }} className={styles.boxes}>
+        <div style={{ flexBasis: '30%', marginRight: '1%', marginLeft: '2%' }} className={styles.box}>
           <MainButton
             title="Trade"
             description="Trade DEOX"
@@ -139,7 +139,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%' }}>
+        <div style={{ flexBasis: '30%' }} className={styles.box}>
           <MainButton
             title="DEUS BONDS"
             description="Purchase and redeem coupons"
@@ -150,7 +150,7 @@ function HomePage({user}: HomePageProps) {
           />
         </div>
 
-        <div style={{ flexBasis: '30%', marginLeft: '1%'  }}>
+        <div style={{ flexBasis: '30%', marginLeft: '1%'  }} className={styles.box}>
           <MainButton
             title="REGULATION"
             description="Network supply regulations statistics"
