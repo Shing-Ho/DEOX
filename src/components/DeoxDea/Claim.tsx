@@ -30,7 +30,7 @@ function Claim({
       <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
         CLAIM
       </div>
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
+      <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '1%'}}>
         {/* total Issued */}
         <div style={{flexBasis: '16%'}}>
           <BalanceBlock asset="Claimable" balance={claimable} suffix={"DEOX"} />
@@ -40,8 +40,8 @@ function Claim({
         </div>
         {/* Deposit UNI-V2 into Pool */}
         <div style={{flexBasis: '35%'}}/>
-        <div style={{flexBasis: '33%', paddingTop: '2%'}}>
-          <div style={{display: 'flex'}}>
+        <div style={{flexBasis: '33%'}}>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
@@ -59,7 +59,7 @@ function Claim({
                 />
               </>
             </div>
-            <div style={{width: '40%', minWidth: '6em'}}>
+            <div style={{minWidth: 130}}>
               <Button
                 wide
                 label="Claim"
@@ -70,14 +70,16 @@ function Claim({
                     (hash) => setClaimAmount(new BigNumber(0))
                   );
                 }}
+                inputButton
+                width={130}
                 disabled={poolAddress === '' || status !== 0 || !isPos(claimAmount)}
               />
             </div>
           </div>
         </div>
       </div>
-      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center'}}>
-        <span style={{ opacity: 0.5 }}> Unbond to make rewards claimable after your status is Unlocked </span>
+      <div style={{width: '100%', paddingTop: '2%', textAlign: 'center', marginTop: 50}}>
+        <span style={{ opacity: 0.5 }}> Unlock to make rewards claimable after your status is Unlocked </span>
       </div>
     </Box>
   );

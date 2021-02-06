@@ -26,7 +26,7 @@ function status(accountStatus, unlocked) {
 const PoolPageHeader = ({
   accountUNIBalance, accountBondedBalance, accountRewardedESDBalance, accountClaimableESDBalance, poolTotalBonded, accountPoolStatus, unlocked
 }: PoolPageHeaderProps) => (
-  <div style={{ padding: '2%', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+  <div style={{ padding: '1% 2% 2% 24px', display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
     <div style={{ flexBasis: '15%' }}>
       <BalanceBlock asset="Balance" balance={accountUNIBalance}  suffix={" UNI-V2"}/>
     </div>
@@ -39,7 +39,7 @@ const PoolPageHeader = ({
     <div style={{ flexBasis: '15%' }}>
       <BalanceBlock asset="Pool Ownership" balance={ownership(accountBondedBalance, poolTotalBonded)}  suffix={"%"}/>
     </div>
-    <div style={{ flexBasis: '38%', display: 'flex', justifyContent: 'flex-end' }}>
+    <div style={{ flexBasis: '40%', display: 'flex', justifyContent: 'flex-end' }}>
       <div style={{ borderRadius: 6, padding: 1, background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)' }}>
         <Button
           label={<span style={{display: 'flex', alignItems: 'center'}}>provide Liquidity <img src={unihorse} style={{width: 14, height: 15, marginLeft: 10}} /> </span>}

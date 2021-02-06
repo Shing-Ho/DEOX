@@ -23,6 +23,7 @@ import BondClaim from './BondClaim';
 import ModalWarning from "./ModalWarning";
 import StatisticBoxes from './StatisticBoxes';
 import styles from './index.module.scss';
+import DEOXLogo from '../common/DEOXLogo';
 
 const ONE_COUPON = new BigNumber(10).pow(18);
 
@@ -119,15 +120,15 @@ function CouponMarket({ user }: {user: string}) {
     <>
       <ModalWarning/>
 
-      <IconHeader icon={<img src={DEUSBONDS} />} text="DEUS BONDS"/>
-      <Box style={{ background: '#0d0d0d', borderColor: '#1b1b1b', borderWidth: 2 }} className={styles.cycleBox}>
-        <div style={{ width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
+      <DEOXLogo />
+      <IconHeader icon={<img src={DEUSBONDS} width="35" />} text="DEUS BONDS"/>
+      <Box style={{ background: '#0d0d0d', borderColor: '#1b1b1b', borderWidth: 2, paddingBottom: 28 }} className={styles.cycleBox}>
+        <div style={{ width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 5, paddingBottom: 5 }}>
           Cycle
         </div>
         <div>
           Every time DEOX drops under $1 a new cycle starts.
-        </div>
-        <div>
+          <br />
           A cycle ends if DEOX is over $1 or after 21*21 moons
         </div>
       </Box>

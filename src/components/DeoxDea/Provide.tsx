@@ -100,7 +100,7 @@ function Provide({
           </div>
         </div>
         :
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', marginTop: '2%'}}>
           {/* total rewarded */}
           <div style={{flexBasis: '32%'}}>
             <BalanceBlock asset="Rewarded" balance={rewarded} suffix={"DEOX"} />
@@ -110,7 +110,7 @@ function Provide({
           </div>
           <div style={{flexBasis: '2%'}}/>
           {/* Approve Pool to spend USDC */}
-          <div style={{flexBasis: '33%', paddingTop: '2%'}}>
+          <div style={{flexBasis: '33%', justifyContent: 'flex-end', display: 'flex'}}>
             <Button
               wide
               label="Approve"
@@ -118,6 +118,7 @@ function Provide({
                 approve(USDC.addr, poolAddress);
               }}
               disabled={poolAddress === '' || user === ''}
+              width={300}
             />
           </div>
         </div>

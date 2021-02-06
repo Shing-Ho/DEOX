@@ -109,16 +109,16 @@ function WithdrawDeposit({
           </div>
         </div>
         :
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', paddingTop: '1%', alignItems: 'center'}}>
           {/* total Issued */}
           <div style={{flexBasis: '32%'}}>
             <BalanceBlock asset="Staged" balance={stagedBalance} suffix={"UNI-V2"}/>
           </div>
           <div style={{flexBasis: '35%'}}/>
           {/* Approve Pool to spend UNI-V2 */}
-          <div style={{flexBasis: '33%', paddingTop: '2%', display: 'flex', justifyContent: 'flex-end'}}>
+          <div style={{flexBasis: '33%', display: 'flex', justifyContent: 'flex-end'}}>
             <Button
-              label="Approve"
+              label="APPROVE"
               onClick={() => {
                 approve(UNI.addr, poolAddress);
               }}

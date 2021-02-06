@@ -133,7 +133,7 @@ function HomePage({user}: HomePageProps) {
           <MainButton
             title="Trade"
             description="Trade DEOX"
-            icon={<img src={TRADE} alt="trade" />}
+            icon={<img src={TRADE} alt="trade" width="35" />}
             onClick={() => {
               window.open('https://app.deus.finance/swap', '_blank');
             }}
@@ -144,7 +144,7 @@ function HomePage({user}: HomePageProps) {
           <MainButton
             title="DEUS BONDS"
             description="Purchase and redeem coupons"
-            icon={<img src={DEUSBONDS} alt="deusbonds" />}
+            icon={<img src={DEUSBONDS} alt="deusbonds" width="35" />}
             onClick={() => {
               history.push('/deusbonds/');
             }}
@@ -155,7 +155,7 @@ function HomePage({user}: HomePageProps) {
           <MainButton
             title="REGULATION"
             description="Network supply regulations statistics"
-            icon={<img src={REGULATION} alt="regulation" />}
+            icon={<img src={REGULATION} alt="regulation" width="35" />}
             onClick={() => {
               history.push('/deusbonds/');
             }}

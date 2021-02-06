@@ -5,18 +5,23 @@ import tooltip from '../../assets/tooltip.png';
 
 import styles from './Button.module.scss';
 
-const CustomButton = ({ inputButton=false, ...props}) => {
-  const width = 
-    props.label === 'approve'
-      ? 155
-      : props.label === 'Lock' || props.label === 'Unlock'
-        ? 130
-        : props.label === 'Claim'
-          ? 300
+const CustomButton = ({ inputButton=false, width=0, ...props}) => {
+  const buttonWidth = 
+    width
+      ? width
+      : props.label === 'approve'
+        ? 155
+        : props.label === 'Lock' || props.label === 'Unlock'
+          ? 130
           : 155;
   const absoluteStyle = inputButton ? {position: 'absolute', left: -3} : {}
+
+  const onMove = e => {
+    console.log('onMove', e.target.offsetLeft, e.clientX - e.target.offsetLeft, e.clientY - e.target.offsetTop)
+  }
+
   return (
-    <div className={styles.buttonDiv}>
+    <div className={styles.buttonDiv} onMouseMove={onMove}>
       <Button
         style={{ 
           background: 'linear-gradient(90deg, #DFF4FE 0%, #8EB5FF 100%)',
@@ -25,7 +30,7 @@ const CustomButton = ({ inputButton=false, ...props}) => {
           opacity: props.disabled ? 0.5 : 1,
           border: '1px solid',
           borderRadius: 6,
-          width: width,
+          width: buttonWidth,
           fontSize: 15,
           ...absoluteStyle
         }}
@@ -33,11 +38,11 @@ const CustomButton = ({ inputButton=false, ...props}) => {
       >
         {props.label}
       </Button>
-      {/* {props.tooltip ? (
+      {props.tooltip ? (
         <div className={styles.tooltip}>
           <img src={tooltip} alt="tooltip" />
         </div>
-      ) : null} */}
+      ) : null}
     </div>
   )
 }

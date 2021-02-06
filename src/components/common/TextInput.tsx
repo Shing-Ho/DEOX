@@ -10,15 +10,16 @@ type TextIntpuProps = {
   onChange: Function
   disabled?: boolean,
   wide?: boolean,
+  width?: number,
 }
 
-const CustomTextInput = ({className, disabled, wide, ...props}: TextIntpuProps) => {
+const CustomTextInput = ({className, disabled, wide, width=300, ...props}: TextIntpuProps) => {
   return (
     <TextInput
       style= {{
         background: '#0D0D0D',
         border: '1px solid #868686',
-        width: wide? '100%' : 300,
+        width: wide? '100%' : width,
         borderRadius: 6,
         color: 'white'
       }}

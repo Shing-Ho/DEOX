@@ -32,7 +32,7 @@ function BondUnbond({
       <div style={{ borderBottomStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#868686', width: '100%', fontFamily: 'Edu Monument Grotesk Semi-Mono', fontSize: 12, marginBottom: 15, paddingBottom: 5 }}>
         BOND
       </div>
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
+      <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '1%'}}>
         {/* Total bonded */}
         <div style={{flexBasis: '16%'}}>
           <BalanceBlock asset="Bonded" balance={bonded} suffix={"UNI-V2"} />
@@ -42,8 +42,8 @@ function BondUnbond({
           <TextBlock label="Exit Lockup" text={lockup === 0 ? "" : lockup === 1 ? "1 epoch" : `${lockup} epochs`}/>
         </div>
         {/* Bond UNI-V2 within Pool */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}}>
-          <div style={{display: 'flex'}}>
+        <div style={{flexBasis: '33%'}}>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
@@ -60,7 +60,7 @@ function BondUnbond({
                 />
               </>
             </div>
-            <div style={{width: '40%', minWidth: '7em'}}>
+            <div style={{minWidth: 130}}>
               <Button
                 wide
                 label="Lock"
@@ -71,6 +71,7 @@ function BondUnbond({
                     (hash) => setBondAmount(new BigNumber(0))
                   );
                 }}
+                inputButton
                 disabled={poolAddress === '' || !isPos(bondAmount)}
               />
             </div>
@@ -78,8 +79,8 @@ function BondUnbond({
         </div>
         <div style={{flexBasis: '2%'}}/>
         {/* Unbond UNI-V2 within Pool */}
-        <div style={{flexBasis: '33%', paddingTop: '2%'}}>
-          <div style={{display: 'flex'}}>
+        <div style={{flexBasis: '33%'}}>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{width: '60%', minWidth: '6em'}}>
               <>
                 <BigNumberInput
@@ -96,7 +97,7 @@ function BondUnbond({
                 />
               </>
             </div>
-            <div style={{width: '40%', minWidth: '7em'}}>
+            <div style={{minWidth: 130}}>
               <Button
                 wide
                 label="Unlock"
@@ -107,6 +108,7 @@ function BondUnbond({
                     (hash) => setUnbondAmount(new BigNumber(0))
                   );
                 }}
+                inputButton
                 disabled={poolAddress === '' || !isPos(unbondAmount)}
               />
             </div>
